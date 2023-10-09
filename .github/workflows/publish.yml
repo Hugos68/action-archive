@@ -1,5 +1,4 @@
-name: Publish package or Create Publish Pull Request
-run-name: ${{ github.actor }} ran Publish package or Create Publish Pull Request
+name: Publish
 on:
   pull_request:
     branches:
