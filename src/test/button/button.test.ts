@@ -13,8 +13,6 @@ describe('use:button', () => {
 
 		anchor.click();
 
-		console.log('Hash: ', window.location.hash);
-
 		requestAnimationFrame(() => {
 			expect(window.location.hash).toBe('');
 		});
