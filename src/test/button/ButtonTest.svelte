@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { button } from './button.js';
+	import { button } from '../../lib/index.js';
 
 	export let text: string;
 
