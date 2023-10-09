@@ -1,12 +1,4 @@
-export interface FocusTrapParameters {
-	initialFocus?: boolean;
-	disabled?: boolean;
-}
-
-interface FocusableChildren {
-	first: HTMLElement | null;
-	last: HTMLElement | null;
-}
+import type { FocusTrapParameters, FocusableChildren } from './types.js';
 
 const focusableElementSelector = [
 	'a[href]:not([tabindex="-1"])',

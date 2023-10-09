@@ -1,6 +1,4 @@
-export type ClickOutsideParameters = {
-	target: string | HTMLElement;
-};
+import type { ClickOutsideParameters } from './types.js';
 
 export function portal(node: HTMLElement, params: ClickOutsideParameters) {
 	function update({ target }: ClickOutsideParameters) {
