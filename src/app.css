@@ -1,0 +1,13 @@
+@import url('@fontsource/kanit');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--header-height: 4rem;
+}
+
+body {
+	@apply bg-stone-900 text-gray-200 font-['Kanit',sans-serif];
+}
