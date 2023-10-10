@@ -5,7 +5,7 @@
 <header
 	class="sticky top-0 p-4 bg-stone-800 px-[clamp(1rem,10vw,25rem)] h-[var(--header-height)] flex items-center z-50"
 >
-	<p class="font-semibold text-lg">Action Archive</p>
+	<a href="/" class="font-semibold text-lg">Action Archive</a>
 </header>
 
 <main class="flex px-[clamp(1rem,10vw,25rem)]">
