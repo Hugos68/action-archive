@@ -28,7 +28,7 @@
 	</div>
 	{#each ['npm', 'pnpm', 'yarn', 'bun'] as pm}
 		<div class="mt-4" use:melt={$content(pm)}>
-			<Codeblock class="p-3 rounded-md" code="{pm} i action-archive" />
+			<Codeblock class="p-3 rounded-md" code="{pm} install action-archive" />
 		</div>
 	{/each}
 </div>
@@ -46,7 +46,5 @@
 	<a class="hover:underline" href="/overview/introduction"
 		><ArrowLeftIcon class="inline" />Introduction</a
 	>
-	<a class="hover:underline" href="/actions"
-		>Check out our actions<ArrowRightIcon class="inline" /></a
-	>
+	<a class="hover:underline" href="/actions">Actions<ArrowRightIcon class="inline" /></a>
 </div>

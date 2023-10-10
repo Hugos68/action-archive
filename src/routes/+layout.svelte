@@ -16,7 +16,7 @@
 </header>
 <main class="flex px-[clamp(1rem,10vw,25rem)]">
 	<aside
-		class="sticky top-[var(--header-height)] h-[calc(100vh-calc(var(--header-height)))] overflow-auto w-1/5 flex flex-col py-8"
+		class="hidden sticky top-[var(--header-height)] h-[calc(100vh-calc(var(--header-height)))] overflow-auto w-1/5 lg:flex flex-col py-8"
 	>
 		<p class="text-lg font-semibold">Overview</p>
 		<span class="flex flex-col gap-1 mt-1.5">
@@ -55,10 +55,12 @@
 			>
 		</span>
 	</aside>
-	<div class="w-3/5 overflow-y-auto px-4 py-8">
+	<div class="lg:w-3/5 overflow-y-auto lg:px-4 py-8">
 		<slot />
 	</div>
-	<aside class="w-1/5 flex flex-col px-4 py-8">
+	<aside
+		class="hidden sticky top-[var(--header-height)] h-[calc(100vh-calc(var(--header-height)))] overflow-auto w-1/5 lg:flex flex-col py-8"
+	>
 		<!-- TODO: TOC -->
 	</aside>
 </main>
