@@ -1,6 +1,10 @@
 {
 	"name": "action-archive",
 	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Hugos68/action-archive"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -25,6 +29,9 @@
 	"files": [
 		"dist"
 	],
+	"publishConfig": {
+		"access": "public"
+	},
 	"devDependencies": {
 		"@changesets/cli": "^2.26.2",
 		"@fontsource/kanit": "^5.0.15",
