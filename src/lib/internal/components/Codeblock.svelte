@@ -1,17 +1,28 @@
 <script lang="ts">
-	import type { HighlightOptions } from 'highlight.js';
+	import 'highlight.js/styles/atom-one-dark.css';
 	import hljs from 'highlight.js/lib/core';
-    import html from 'highlight.js/lib/languages/xml';
-    import javascript from 'highlight.js/lib/languages/javascript';
-    import plaintext from 'highlight.js/lib/languages/plaintext';
-    import svelte from '$lib/internal/highlightjs/svelte'
-    import 'highlight.js/styles/a11y-dark.css';
-    hljs.registerLanguage('html', html);
-    hljs.registerLanguage('javascript', javascript);
-    hljs.registerLanguage('plaintext', plaintext);
+	import xml from 'highlight.js/lib/languages/xml';
+	import css from 'highlight.js/lib/languages/css';
+	import json from 'highlight.js/lib/languages/json';
+	import javascript from 'highlight.js/lib/languages/javascript';
+	import typescript from 'highlight.js/lib/languages/typescript';
+	import plaintext from 'highlight.js/lib/languages/plaintext';
+	import shell from 'highlight.js/lib/languages/shell';
 
 	export let code: string;
-	export let options: HighlightOptions = { language: 'plaintext' };
-    </script>
+	export let language: string = 'xml';
 
-<pre {...$$restProps} class="hljs w-full overflow-scroll {$$props.class}"><code class="language-{options.language}">{@html hljs.highlight(code, options).value.trim()}</code></pre>
+	hljs.registerLanguage('xml', xml);
+	hljs.registerLanguage('css', css);
+	hljs.registerLanguage('json', json);
+	hljs.registerLanguage('javascript', javascript);
+	hljs.registerLanguage('typescript', typescript);
+	hljs.registerLanguage('shell', shell);
+	hljs.registerLanguage('plaintext', plaintext);
+</script>
+
+<!-- eslint-disable -->
+<pre {...$$restProps} class="hljs w-full overflow-scroll {$$props.class}"><code
+		class="language-{language}">{@html hljs.highlight(code, { language }).value.trim()}</code
+	></pre>
+<!-- eslint-enable -->
