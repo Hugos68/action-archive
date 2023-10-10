@@ -1,5 +1,11 @@
 # action-archive
 
+## 0.0.3
+
+### Patch Changes
+
+- 695da48: Staticfied website
+
 ## 0.0.2
 
 ### Patch Changes
