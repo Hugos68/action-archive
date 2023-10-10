@@ -1,6 +1,7 @@
 {
 	"name": "action-archive",
 	"version": "0.0.3",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Hugos68/action-archive"
@@ -9,7 +10,7 @@
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
 		"preview": "vite preview",
-		"package": "svelte-kit sync && publint",
+		"package": "svelte-kit sync && svelte-package && publint",
 		"prepublishOnly": "npm run package",
 		"test": "vitest run",
 		"test:watch": "vitest",
@@ -20,9 +21,15 @@
 		"ci-cd": "pnpm format && pnpm lint && pnpm check && pnpm test && pnpm build",
 		"release": "pnpm run build && changeset publish"
 	},
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		}
+	},
 	"files": [
 		"dist",
-		"!dist/internal"
+		"!dist/internal/**"
 	],
 	"publishConfig": {
 		"access": "public"
@@ -32,7 +39,9 @@
 		"@fontsource/kanit": "^5.0.15",
 		"@melt-ui/pp": "^0.1.2",
 		"@melt-ui/svelte": "^0.53.0",
+		"@sveltejs/adapter-static": "^2.0.3",
 		"@sveltejs/kit": "^1.20.4",
+		"@sveltejs/package": "^2.2.0",
 		"@sveltejs/vite-plugin-svelte": "^2.4.6",
 		"@testing-library/svelte": "^4.0.3",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -47,7 +56,7 @@
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.10.1",
 		"publint": "^0.1.9",
-		"svelte": "^4.0.5",
+		"svelte": "^4.2.1",
 		"svelte-check": "^3.4.3",
 		"svelte-feather-icons": "^4.0.1",
 		"svelte-sequential-preprocessor": "^2.0.1",
@@ -57,8 +66,9 @@
 		"vite": "^4.4.11",
 		"vitest": "^0.32.4"
 	},
+	"svelte": "./dist/index.js",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"type": "module",
-	"dependencies": {
-		"@sveltejs/adapter-static": "^2.0.3"
-	}
+	"packageManager": "pnpm@8.8.0"
 }
