@@ -2,7 +2,7 @@
 	import Codeblock from '$lib/internal/components/Codeblock.svelte';
 	import { ArrowLeftIcon, ArrowRightIcon } from 'svelte-feather-icons';
 	import { createTabs, melt } from '@melt-ui/svelte';
-	import actionUsage from '$lib/internal/snippets/action-usage.txt?raw';
+	import actionUsageCode from './action-usage.txt?raw';
 
 	const {
 		elements: { root, list, content, trigger },
@@ -26,11 +26,13 @@
 			>
 		{/each}
 	</div>
-	{#each ['npm', 'pnpm', 'yarn', 'bun'] as pm}
-		<div class="mt-4" use:melt={$content(pm)}>
-			<Codeblock class="p-3 rounded-md" code="{pm} install action-archive" />
-		</div>
-	{/each}
+	<div class="mt-4">
+		{#each ['npm', 'pnpm', 'yarn', 'bun'] as pm}
+			<div use:melt={$content(pm)}>
+				<Codeblock class="p-3 rounded-md" code="{pm} install action-archive" />
+			</div>
+		{/each}
+	</div>
 </div>
 
 <h2 class="text-2xl mt-12">Usage</h2>
@@ -39,7 +41,7 @@
 	use any of the actions provided by Action Archive like this:
 </p>
 <div class="mt-4">
-	<Codeblock class="p-3 rounded-md" code={actionUsage} lanuage="xml" />
+	<Codeblock class="p-3 rounded-md" code={actionUsageCode} lanuage="xml" />
 </div>
 
 <div class="flex justify-between mt-12">

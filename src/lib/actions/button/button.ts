@@ -1,6 +1,15 @@
-export function button(node: HTMLElement) {
+import type { ButtonParameters } from './types';
+
+export function button(node: HTMLElement, { callback }: ButtonParameters) {
+	let currentCallback = callback;
+
 	function clickHandler(event: MouseEvent) {
 		event.preventDefault();
+		currentCallback(event);
+	}
+
+	function update({ callback: newCallback }: ButtonParameters) {
+		currentCallback = newCallback;
 	}
 
 	function destroy() {
@@ -9,5 +18,5 @@ export function button(node: HTMLElement) {
 
 	node.addEventListener('click', clickHandler);
 
-	return { destroy };
+	return { update, destroy };
 }

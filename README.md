@@ -6,4 +6,3 @@
 # Action Archive
 
 Action packed library aimed to reduce boilerplate for common Svelte actions, [view the documentation](https://action-archive.vercel.app).
-
