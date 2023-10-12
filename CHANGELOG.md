@@ -1,5 +1,11 @@
 # action-archive
 
+## 0.0.5
+
+### Patch Changes
+
+- ff149e2: Fixed packaging issues not publishing dist
+
 ## 0.0.4
 
 ### Patch Changes
