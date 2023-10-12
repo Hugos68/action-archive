@@ -2,7 +2,7 @@
 	import Codeblock from '$lib/internal/components/Codeblock.svelte';
 	import { ArrowLeftIcon, ArrowRightIcon } from 'svelte-feather-icons';
 	import { createTabs, melt } from '@melt-ui/svelte';
-	import actionUsage from '$lib/internal/snippets/action-usage.txt?raw';
+	import actionUsageCode from './action-usage.txt?raw';
 
 	const {
 		elements: { root, list, content, trigger },
@@ -13,7 +13,7 @@
 </script>
 
 <p class="opacity-50">Overview</p>
-<h1 class="text-4xl mt-4">Getting Started</h1>
+<h1 class="text-4xl mt-4" id="getting-started">Getting Started</h1>
 <p class="mt-4">To get started install Action Archive with your package manager of choice:</p>
 
 <div class="mt-4" use:melt={$root}>
@@ -26,25 +26,29 @@
 			>
 		{/each}
 	</div>
-	{#each ['npm', 'pnpm', 'yarn', 'bun'] as pm}
-		<div class="mt-4" use:melt={$content(pm)}>
-			<Codeblock class="p-3 rounded-md" code="{pm} install action-archive" />
-		</div>
-	{/each}
+	<div class="mt-4">
+		{#each ['npm', 'pnpm', 'yarn', 'bun'] as pm}
+			<div use:melt={$content(pm)}>
+				<Codeblock class="p-3 rounded-md" code="{pm} add action-archive" />
+			</div>
+		{/each}
+	</div>
 </div>
 
-<h2 class="text-2xl mt-12">Usage</h2>
+<h2 class="text-3xl mt-12" id="usage">Usage</h2>
 <p class="mt-4">
 	Action Archive always exports actions compatible with Svelte's action syntax. This means you can
 	use any of the actions provided by Action Archive like this:
 </p>
 <div class="mt-4">
-	<Codeblock class="p-3 rounded-md" code={actionUsage} lanuage="xml" />
+	<Codeblock class="p-3 rounded-md" code={actionUsageCode} lanuage="xml" />
 </div>
 
 <div class="flex justify-between mt-12">
-	<a class="hover:underline" href="/overview/introduction"
+	<a class="bg-stone-500 rounded-md px-3 py-1.5 hover:underline" href="/overview/introduction"
 		><ArrowLeftIcon class="inline" />Introduction</a
 	>
-	<a class="hover:underline" href="/actions">Actions<ArrowRightIcon class="inline" /></a>
+	<a class="bg-stone-500 rounded-md px-3 py-1.5 hover:underline" href="/actions"
+		>Actions<ArrowRightIcon class="inline" /></a
+	>
 </div>

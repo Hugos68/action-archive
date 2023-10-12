@@ -9,12 +9,13 @@ describe('use:button', () => {
 		const text = 'Navigation Prevented';
 		render(ButtonTest, { text });
 
+		const textEl = screen.getByTestId('text');
 		const anchor = screen.getByTestId('anchor');
 
 		anchor.click();
 
 		requestAnimationFrame(() => {
-			expect(window.location.hash).toBe('');
+			expect(textEl.innerText).toBe(text);
 		});
 	});
 });

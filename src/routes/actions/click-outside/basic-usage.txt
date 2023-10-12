@@ -1,0 +1,9 @@
+<script lang="ts">
+    import { click_outside } from 'action-archive';
+
+    function clickOutsideHandler(event: MouseEvent) {
+        /* User clicked outside */
+    }
+</script>
+
+<div use:click_outside on:click_outside={clickOutsideHandler} />
