@@ -1,5 +1,11 @@
 # action-archive
 
+## 0.0.6
+
+### Patch Changes
+
+- 2caae8b: Major doc rework, slight API change
+
 ## 0.0.5
 
 ### Patch Changes
