@@ -6,8 +6,18 @@
 
 :root {
 	--header-height: 4rem;
+	--vertical-padding: 2rem;
 }
 
 body {
 	@apply bg-stone-900 text-gray-200 font-['Kanit',sans-serif];
+}
+
+h1[id],
+h2[id],
+h3[id],
+h4[id],
+h5[id],
+h6[id] {
+	@apply scroll-mt-[calc(var(--header-height)+var(--vertical-padding))];
 }

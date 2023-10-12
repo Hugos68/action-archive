@@ -8,7 +8,12 @@
 </script>
 
 <div {...$$restProps} class="{$$props.class} overflow-auto">
-	<h2 class="text-end bg-stone-800 w-min p-2 rounded-t-md">{structure.title}</h2>
+	<h3
+		class="text-2xl text-end bg-stone-800 w-min p-2 rounded-t-md"
+		id={structure.title.toLowerCase().replace(' ', '-')}
+	>
+		{structure.title}
+	</h3>
 	<table class="min-w-full bg-stone-800 rounded-b-md rounded-tr-md">
 		<thead class="border-b-2 border-stone-700">
 			<tr>

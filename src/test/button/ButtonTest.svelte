@@ -7,5 +7,4 @@
 </script>
 
 <p data-testid="text">{currentText}</p>
-<a data-testid="anchor" use:button={{ callback: () => (currentText = text) }} href="#test">Anchor</a
->
+<a data-testid="anchor" use:button on:click={() => (currentText = text)} href="#test">Anchor</a>

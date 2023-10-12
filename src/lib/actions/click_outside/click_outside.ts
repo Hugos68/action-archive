@@ -1,5 +1,8 @@
-// TODO: Use ActionReturn to get typesafe custom events
-export function click_outside(node: HTMLElement) {
+import type { ActionReturn } from 'svelte/action';
+
+export function click_outside(
+	node: HTMLElement
+): ActionReturn<undefined, { 'on:click_outside': (event: MouseEvent) => void }> {
 	function clickHandler(event: MouseEvent) {
 		if (node.contains(event.target as Node)) {
 			return;

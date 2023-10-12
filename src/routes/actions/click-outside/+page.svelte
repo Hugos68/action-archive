@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Codeblock from '$lib/internal/components/Codeblock.svelte';
-	import { ArrowRightIcon } from 'svelte-feather-icons';
+	import { ArrowLeftIcon, ArrowRightIcon } from 'svelte-feather-icons';
 	import importcode from './import.txt?raw';
 	import basicUsageCode from './basic-usage.txt?raw';
 	import DocTable from '$lib/internal/components/DocTable.svelte';
@@ -38,10 +38,10 @@
 	for example when you want to close a modal when the user clicks outside of it.
 </p>
 
-<h2 class="text-2xl mt-12">Usage</h2>
+<h2 class="text-3xl mt-12" id="usage">Usage</h2>
 <Codeblock class="p-3 rounded-md mt-4" code={basicUsageCode} language="xml" />
 
-<h2 class="text-2xl mt-12">Example</h2>
+<h2 class="text-3xl mt-12" id="example">Example</h2>
 <div class="h-36 w-full flex justify-center items-center">
 	<div
 		class="bg-stone-600 h-24 w-36 flex justify-center items-center rounded-md"
@@ -54,11 +54,18 @@
 	</div>
 </div>
 
-<h2 class="text-2xl mt-4">API</h2>
+<h2 class="text-3xl mt-4" id="api">API</h2>
 <DocTable class="mt-4" structure={parametersStructure} />
 
 <div class="flex justify-end mt-12">
-	<a class="hover:underline" href="/actions/click-outside"
-		>Click Outside <ArrowRightIcon class="inline" /></a
+	<a class="hover:underline" href="/actions/focus-trap"><ArrowRightIcon class="inline" /></a>
+</div>
+
+<div class="flex justify-between mt-12">
+	<a class="bg-stone-500 rounded-md px-3 py-1.5 hover:underline" href="/actions/button"
+		><ArrowLeftIcon class="inline" />Button</a
+	>
+	<a class="bg-stone-500 rounded-md px-3 py-1.5 hover:underline" href="/actions/focus-trap"
+		>Focus Trap<ArrowRightIcon class="inline" /></a
 	>
 </div>
