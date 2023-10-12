@@ -13,6 +13,7 @@ body {
 	@apply bg-stone-900 text-gray-200 font-['Kanit',sans-serif];
 }
 
+/* Prevent header from overlapping content */
 h1[id],
 h2[id],
 h3[id],
@@ -20,4 +21,26 @@ h4[id],
 h5[id],
 h6[id] {
 	@apply scroll-mt-[calc(var(--header-height)+var(--vertical-padding))];
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	@apply font-bold;
+}
+.h1 {
+	@apply text-5xl;
+}
+.h2 {
+	@apply text-3xl;
+}
+.h3 {
+	@apply text-xl;
+}
+
+.btn {
+	@apply px-3 py-1.5 rounded-md;
 }

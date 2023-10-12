@@ -9,7 +9,7 @@
 
 <div {...$$restProps} class="{$$props.class} overflow-auto">
 	<h3
-		class="text-2xl text-end bg-stone-800 w-min p-2 rounded-t-md"
+		class="h3 sticky left-0 text-end bg-stone-800 w-min p-2 rounded-t-md"
 		id={structure.title.toLowerCase().replace(' ', '-')}
 	>
 		{structure.title}
