@@ -1,9 +1,9 @@
 <script lang="ts">
     import { button } from 'action-archive';
 
-    function doSomething(event: MouseEvent) {
-        /* Navigation is canceled, do something else here */
+    function clickHandler(event: MouseEvent) {
+        /* Navigation is canceled */
     }
 </script>
 
-<a href="/some-route" use:button={{ callback: doSomething }}>Click Me</a>
+<a href="/some-route" use:button on:click={clickHandler}>Click Me</a>

@@ -1,3 +1,4 @@
+// TODO: Use ActionReturn to get typesafe custom events
 export function click_outside(node: HTMLElement) {
 	function clickHandler(event: MouseEvent) {
 		if (node.contains(event.target as Node)) {
