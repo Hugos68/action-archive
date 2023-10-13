@@ -1,7 +1,10 @@
-import type { ClickOutsideParameters } from './types.js';
+import type { PortalParameters } from './types.js';
 
-export function portal(node: HTMLElement, params: ClickOutsideParameters) {
-	function update({ target }: ClickOutsideParameters) {
+export function portal(
+	node: HTMLElement,
+	portalParameters: PortalParameters = { target: document.body }
+) {
+	function update({ target }: PortalParameters) {
 		node.remove();
 
 		if (target instanceof HTMLElement) {
@@ -12,11 +15,11 @@ export function portal(node: HTMLElement, params: ClickOutsideParameters) {
 		let queriedEl: HTMLElement | null = null;
 		try {
 			queriedEl = document.querySelector(target);
+			if (queriedEl) queriedEl.appendChild(node);
 		} catch (_error) {
-			queriedEl = document.body;
+			console.warn(`Selector "${target}" is not a valid selector.`);
 		}
-		queriedEl?.appendChild(node);
 	}
-	update(params);
+	update(portalParameters);
 	return { update };
 }

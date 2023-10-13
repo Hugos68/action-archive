@@ -1,4 +1,4 @@
-@import url('@fontsource/kanit');
+@import url('@fontsource/inter');
 
 @tailwind base;
 @tailwind components;
@@ -10,7 +10,7 @@
 }
 
 body {
-	@apply bg-stone-900 text-gray-200 font-['Kanit',sans-serif];
+	@apply bg-neutral-950 text-neutral-50 font-['Kanit',sans-serif];
 }
 
 /* Prevent header from overlapping content */
@@ -42,5 +42,9 @@ h6[id] {
 }
 
 .btn {
-	@apply px-3 py-1.5 rounded-md;
+	@apply px-3 py-1.5 rounded-md bg-neutral-200 hover:bg-neutral-200/90 text-neutral-950 font-bold;
+}
+
+.input {
+	@apply px-3 py-1.5 rounded-md bg-neutral-50 hover:bg-neutral-200/90 text-neutral-950 font-bold;
 }

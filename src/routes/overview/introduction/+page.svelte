@@ -11,9 +11,10 @@
 
 <h2 class="h2 mt-4" id="features">Features</h2>
 <ul class="mt-4">
-	<li>- Easy and consistent API</li>
-	<li>- Fully Typesafe</li>
-	<li>- Fully treeshakable (Only the actions you actually use get bundled)</li>
+	<li>- Awesome Actions</li>
+	<li>- Consistent API</li>
+	<li>- Full Typesafety</li>
+	<li>- Fully Treeshakable</li>
 </ul>
 
 <h2 class="h2 mt-12" id="motiviation">Motivation</h2>
@@ -41,8 +42,8 @@
 </p>
 <p class="mt-4">Fun fact: This website was built with Melt!</p>
 
-<div class="flex justify-end mt-12">
-	<a class="btn bg-stone-500" href="/overview/getting-started"
+<div class="flex justify-end mt-36">
+	<a class="btn bg-neutral-500" href="/overview/getting-started"
 		>Getting Started <ArrowRightIcon class="inline" /></a
 	>
 </div>

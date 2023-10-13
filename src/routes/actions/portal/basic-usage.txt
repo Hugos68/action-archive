@@ -1,0 +1,9 @@
+<script lang="ts">
+    import { portal, type PortalParameters } from 'action-archive';
+
+    const portalParameters: PortalParameters = {
+        target: document.body
+    };
+</script>
+
+<div use:portal={portalParameters} />

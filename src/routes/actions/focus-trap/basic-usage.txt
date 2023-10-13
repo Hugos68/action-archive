@@ -1,0 +1,9 @@
+<script lang="ts">
+    import { focus_trap } from 'action-archive';
+
+    const focusTrapParameters: FocusTrapParameters = {
+        initialFocus: true
+    };
+</script>
+
+<div use:focus_trap={focusTrapParameters} />

@@ -12,67 +12,45 @@ const focusableElementSelector = [
 
 export function focus_trap(
 	node: HTMLElement,
-	params: FocusTrapParameters = { initialFocus: true, disabled: false }
+	focusTrapParameters: FocusTrapParameters = { initialFocus: true }
 ) {
-	let focusableChildren: FocusableChildren = {
-		first: null,
-		last: null
-	};
+	function determineFocusableElements(): FocusableChildren {
+		const focusableElements: HTMLElement[] = Array.from(
+			node.querySelectorAll(focusableElementSelector)
+		);
+		return {
+			first: focusableElements.at(0) || null,
+			last: focusableElements.at(-1) || null
+		};
+	}
 
 	function keydownHandler(event: KeyboardEvent): void {
-		const { disabled } = params;
+		const { disabled } = focusTrapParameters;
+		const { first, last } = determineFocusableElements();
 		const isTabKey = event.key === 'Tab';
-		const { first, last } = focusableChildren;
 
 		if (disabled || !isTabKey || !first || !last) return;
 
-		if (event.shiftKey && document.activeElement === focusableChildren.first) {
+		if (event.shiftKey && document.activeElement === first) {
 			event.preventDefault();
 			last.focus();
-		} else if (!event.shiftKey && document.activeElement === focusableChildren.last) {
+		} else if (!event.shiftKey && document.activeElement === last) {
 			event.preventDefault();
 			first.focus();
 		}
 	}
 
-	function determineFocusableElements(): FocusableChildren {
-		const focusableElements: HTMLElement[] = Array.from(
-			node.querySelectorAll(focusableElementSelector)
-		);
-
-		if (!focusableElements.length) {
-			return focusableChildren;
-		}
-
-		return {
-			first: focusableElements[0],
-			last: focusableElements[focusableElements.length - 1]
-		};
+	if (focusTrapParameters.initialFocus) {
+		const { first } = determineFocusableElements();
+		first?.focus();
 	}
 
-	function observationHandler(mutationRecords: MutationRecord[], observer: MutationObserver) {
-		if (mutationRecords.length) {
-			focusableChildren = determineFocusableElements();
-		}
-
-		return observer;
-	}
-
-	const observer = new MutationObserver(observationHandler);
-	observer.observe(node, { childList: true, subtree: true });
-	focusableChildren = determineFocusableElements();
-
-	if (params.initialFocus && focusableChildren.first) {
-		focusableChildren.first.focus();
-	}
-
-	function update(newParams: FocusTrapParameters) {
-		params = { ...params, ...newParams };
+	function update(newFocusTrapParameteters: FocusTrapParameters) {
+		focusTrapParameters = { ...focusTrapParameters, ...newFocusTrapParameteters };
 	}
 
 	function destroy() {
 		document.removeEventListener('keydown', keydownHandler);
-		observer.disconnect();
 	}
 
 	document.addEventListener('keydown', keydownHandler);

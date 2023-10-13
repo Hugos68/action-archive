@@ -1,3 +1,3 @@
-export type ClickOutsideParameters = {
+export type PortalParameters = {
 	target: string | HTMLElement;
 };

@@ -19,10 +19,7 @@
 <div class="mt-4" use:melt={$root}>
 	<div use:melt={$list} class="flex gap-2">
 		{#each ['npm', 'pnpm', 'yarn', 'bun'] as pm}
-			<button
-				class="bg-stone-400 text-gray-700 px-2 py-1 rounded-md"
-				class:!bg-stone-300={$value === pm}
-				use:melt={$trigger(pm)}>{pm}</button
+			<button class="btn" class:!bg-neutral-500={$value !== pm} use:melt={$trigger(pm)}>{pm}</button
 			>
 		{/each}
 	</div>
@@ -40,13 +37,11 @@
 	Action Archive always exports actions compatible with Svelte's action syntax. This means you can
 	use any of the actions provided by Action Archive like this:
 </p>
-<div class="mt-4">
-	<Codeblock class="p-3 rounded-md" code={actionUsageCode} lanuage="xml" />
-</div>
+<Codeblock class="mt-4" code={actionUsageCode} language="xml" />
 
-<div class="flex justify-between mt-12">
-	<a class="btn bg-stone-500" href="/overview/introduction"
+<div class="flex justify-between mt-36">
+	<a class="btn bg-neutral-500" href="/overview/introduction"
 		><ArrowLeftIcon class="inline" />Introduction</a
 	>
-	<a class="btn bg-stone-500" href="/actions">Actions<ArrowRightIcon class="inline" /></a>
+	<a class="btn bg-neutral-500" href="/actions">Actions<ArrowRightIcon class="inline" /></a>
 </div>
