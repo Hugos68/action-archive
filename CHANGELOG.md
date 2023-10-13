@@ -1,5 +1,11 @@
 # action-archive
 
+## 0.0.7
+
+### Patch Changes
+
+- 934cd7e: Added docs for portal and focus_trap
+
 ## 0.0.6
 
 ### Patch Changes
