@@ -1,9 +1,5 @@
 <script lang="ts">
     import { button } from 'action-archive';
-
-    function clickHandler(event: MouseEvent) {
-        /* Navigation is canceled */
-    }
 </script>
 
-<a href="/some-route" use:button on:click={clickHandler}>Click Me</a>
+<div use:button />

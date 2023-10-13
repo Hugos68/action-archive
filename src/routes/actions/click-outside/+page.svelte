@@ -4,8 +4,9 @@
 	import importcode from './import.txt?raw';
 	import basicUsageCode from './basic-usage.txt?raw';
 	import DocTable from '$lib/internal/components/DocTable.svelte';
-	import { click_outside } from '../../../lib';
-	import { fade } from 'svelte/transition';
+	import Example from '$lib/internal/components/Example.svelte';
+	import ClickOutsideExample from './ClickOutsideExample.svelte';
+	import clickOutsideExampleRaw from './ClickOutsideExample.svelte?raw';
 
 	const parametersStructure = {
 		title: 'Events',
@@ -18,20 +19,11 @@
 			]
 		]
 	};
-
-	let clickedOutside = false;
-	let timer: ReturnType<typeof setTimeout>;
-	function clickOutsideHandler() {
-		clickedOutside = true;
-		if (timer) clearTimeout(timer);
-		timer = setTimeout(() => (clickedOutside = false), 1000);
-	}
 </script>
 
 <p class="opacity-50">Actions</p>
 <h1 class="h1 mt-4">Click Outside</h1>
-
-<Codeblock class="p-4 rounded-md mt-4" code={importcode} language="javascript" />
+<Codeblock class="mt-4" code={importcode} language="javascript" />
 
 <p class="mt-4">
 	The Click Outside action can be used to detect clicks outside of an element, this can be useful
@@ -39,31 +31,19 @@
 </p>
 
 <h2 class="h2 mt-12" id="usage">Usage</h2>
-<Codeblock class="p-3 rounded-md mt-4" code={basicUsageCode} language="xml" />
+<Codeblock class="mt-4" code={basicUsageCode} language="xml" />
 
 <h2 class="h2 mt-12" id="example">Example</h2>
-<div class="h-36 w-full flex justify-center items-center">
-	<div
-		class="bg-stone-600 h-24 w-36 flex justify-center items-center rounded-md"
-		use:click_outside
-		on:click_outside={clickOutsideHandler}
-	>
-		{#if clickedOutside}
-			<p class="text-center select-none" transition:fade={{ duration: 150 }}>Clicked outside!</p>
-		{/if}
-	</div>
-</div>
+<Example code={clickOutsideExampleRaw} language="xml">
+	<ClickOutsideExample />
+</Example>
 
-<h2 class="h2 mt-4" id="api">API</h2>
+<h2 class="h2 mt-12" id="api">API</h2>
 <DocTable class="mt-4" structure={parametersStructure} />
 
-<div class="flex justify-end mt-12">
-	<a class="hover:underline" href="/actions/focus-trap"><ArrowRightIcon class="inline" /></a>
-</div>
-
-<div class="flex justify-between mt-12">
-	<a class="btn bg-stone-500" href="/actions/button"><ArrowLeftIcon class="inline" />Button</a>
-	<a class="btn bg-stone-500" href="/actions/focus-trap"
+<div class="flex justify-between mt-36">
+	<a class="btn bg-neutral-500" href="/actions/button"><ArrowLeftIcon class="inline" />Button</a>
+	<a class="btn bg-neutral-500" href="/actions/focus-trap"
 		>Focus Trap<ArrowRightIcon class="inline" /></a
 	>
 </div>

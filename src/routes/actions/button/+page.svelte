@@ -3,7 +3,9 @@
 	import { ArrowRightIcon } from 'svelte-feather-icons';
 	import importcode from './import.txt?raw';
 	import basicUsageCode from './basic-usage.txt?raw';
-	import { button } from '../../../lib';
+	import Example from '../../../lib/internal/components/Example.svelte';
+	import ButtonExample from './ButtonExample.svelte';
+	import buttonExampleRaw from './ButtonExample.svelte?raw';
 </script>
 
 <p class="opacity-50">Actions</p>
@@ -20,14 +22,13 @@
 <Codeblock class="p-3 rounded-md mt-4" code={basicUsageCode} language="xml" />
 
 <h2 class="h2 mt-12" id="example">Example</h2>
-<div class="h-36 w-full flex justify-center items-center">
-	<a href="/actions/button" class="btn bg-stone-600" use:button
-		>I'm an anchor tag that won't take you anywhere!</a
-	>
-</div>
+<p class="mt-4">Turn off Javascript to see the link in action!</p>
+<Example code={buttonExampleRaw} language="xml">
+	<ButtonExample />
+</Example>
 
-<div class="flex justify-end mt-12">
-	<a class="btn bg-stone-500" href="/actions/click-outside"
+<div class="flex justify-end mt-36">
+	<a class="btn bg-neutral-500" href="/actions/click-outside"
 		>Click Outside <ArrowRightIcon class="inline" /></a
 	>
 </div>

@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@fontsource/inter':
+    specifier: ^5.0.13
+    version: 5.0.13
   svelte:
     specifier: ^4.2.1
     version: 4.2.1
@@ -586,6 +589,10 @@ packages:
   /@floating-ui/utils@0.1.6:
     resolution: {integrity: sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A==}
     dev: true
+
+  /@fontsource/inter@5.0.13:
+    resolution: {integrity: sha512-FVIBhP9X/x02blF2VQl2Pji/c3jUjkWEQ9bom4vIrGwO1MlHRDXhXx9iA1hhjpcCIfH3oX68ihIBdYcFnOXhsg==}
+    dev: false
 
   /@fontsource/kanit@5.0.15:
     resolution: {integrity: sha512-7a5DRFxA2pr/cLVwFlPtN3LvTfApXT/DBULqy35oyafSYMYarL+OmESBZ6gQKocEtox9phFtSEhW1whJdipbkg==}
