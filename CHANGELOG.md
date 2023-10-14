@@ -1,5 +1,13 @@
 # action-archive
 
+## 0.0.8
+
+### Patch Changes
+
+- c237ac6: Implemented sidebar for docs
+- b18502e: Removed fontsource as accidental dep
+- 56c946f: Fixed focus trap including hidden (display: none) elements
+
 ## 0.0.7
 
 ### Patch Changes
