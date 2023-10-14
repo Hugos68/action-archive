@@ -1,0 +1,9 @@
+<script lang="ts">
+    import { clipboard, type ClipboardParameters } from 'action-archive';
+
+    const clipboardParameters: ClipboardParameters = {
+        value: 'Copy Me!'
+    };
+</script>
+
+<button use:clipboard={clipboardParameters}>Copy</button>

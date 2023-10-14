@@ -6,8 +6,9 @@
 	import buttonExampleRaw from './ButtonExample.svelte?raw';
 </script>
 
+<h2 class="h2 mt-12" id="description">Description</h2>
 <p class="mt-4">
-	The Button action can turn anchor tag into a button by canceling navigation, this can be useful
+	The Button action turns an anchor tag into a button by preventing navigation, this can be useful
 	when you want to progressively enhance an anchor tag to open a modal and prevent navigation.
 </p>
 

@@ -5,6 +5,7 @@
 
 	type UnwrapStore<T> = T extends Writable<infer Store> ? Store : never;
 	export let headingsTree: UnwrapStore<TableOfContentsStates['headingsTree']>;
+	export let activeHeadingIdxs: UnwrapStore<TableOfContentsStates['activeHeadingIdxs']>;
 	export let depth = 1;
 
 	const depthMap: Record<number, string> = {
@@ -17,9 +18,11 @@
 	};
 </script>
 
-{#each headingsTree as { title, node, children }}
-	<a class={depthMap[depth]} href="#{node.id}">{title}</a>
+{#each headingsTree as { title, index, node, children }}
+	<a class:underline={activeHeadingIdxs.includes(index)} class={depthMap[depth]} href="#{node.id}"
+		>{title}</a
+	>
 	{#if children}
-		<TableOfContents headingsTree={children} depth={depth + 1} />
+		<TableOfContents headingsTree={children} {activeHeadingIdxs} depth={depth + 1} />
 	{/if}
 {/each}

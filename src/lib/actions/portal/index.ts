@@ -4,7 +4,9 @@ export function portal(
 	node: HTMLElement,
 	portalParameters: PortalParameters = { target: document.body }
 ) {
-	function update({ target }: PortalParameters) {
+	function update(newPortalParameters: unknown) {
+		const { target } = newPortalParameters as PortalParameters;
+
 		if (target instanceof HTMLElement) {
 			target.appendChild(node);
 			return;

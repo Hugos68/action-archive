@@ -8,9 +8,8 @@
 	import typescript from 'highlight.js/lib/languages/typescript';
 	import plaintext from 'highlight.js/lib/languages/plaintext';
 	import shell from 'highlight.js/lib/languages/shell';
-
-	export let code: string;
-	export let language: string = 'plaintext';
+	import { clipboard } from '$lib';
+	import { CheckIcon, CopyIcon } from 'svelte-feather-icons';
 
 	hljs.registerLanguage('xml', xml);
 	hljs.registerLanguage('css', css);
@@ -19,10 +18,34 @@
 	hljs.registerLanguage('typescript', typescript);
 	hljs.registerLanguage('shell', shell);
 	hljs.registerLanguage('plaintext', plaintext);
+
+	export let code: string;
+	export let language: string = 'plaintext';
+	export let fromExample = false;
+
+	let copied = false;
+
+	let copyTimeout: ReturnType<typeof setTimeout>;
+	function clipboardcopyHandler() {
+		copied = true;
+		if (copyTimeout) clearTimeout(copyTimeout);
+		copyTimeout = setTimeout(() => {
+			copied = false;
+		}, 2000);
+	}
 </script>
 
-<!-- eslint-disable -->
-<pre {...$$restProps} class="hljs w-full overflow-scroll p-4 rounded-md {$$props.class}"><code
-		class="language-{language}">{@html hljs.highlight(code, { language }).value.trim()}</code
-	></pre>
-<!-- eslint-enable -->
+<div {...$$restProps} class="hljs relative w-full rounded-md overflow-auto {$$props.class}">
+	<button
+		class="btn absolute w-fit h-fit top-4 {fromExample ? 'right-[4.5rem]' : 'right-4'}"
+		use:clipboard={{ value: code }}
+		on:clipboard_copy={clipboardcopyHandler}
+	>
+		<svelte:component this={copied ? CheckIcon : CopyIcon} size="20" />
+	</button>
+	<!-- eslint-disable -->
+	<pre class="hljs p-4"><code class="language-{language}"
+			>{@html hljs.highlight(code, { language }).value.trim()}</code
+		></pre>
+	<!-- eslint-enable -->
+</div>

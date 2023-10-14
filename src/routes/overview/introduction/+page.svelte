@@ -32,7 +32,7 @@
 
 <h2 class="h2 mt-12" id="inspiration">Inspiration</h2>
 <p class="mt-4">
-	Credits to both Skeleton and Melt as they inspired some actions.
+	Credits to both Skeleton and Melt as they inspired some of the featured actions.
 	<span class="block">
 		- <a class="underline hover:opacity-90 font-bold" href="https://www.skeleton.dev/">Skeleton</a>
 	</span>

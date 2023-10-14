@@ -47,8 +47,11 @@ export function focus_trap(
 		first?.focus();
 	}
 
-	function update(newFocusTrapParameteters: FocusTrapParameters) {
-		focusTrapParameters = { ...focusTrapParameters, ...newFocusTrapParameteters };
+	function update(newFocusTrapParameteters: unknown) {
+		focusTrapParameters = {
+			...focusTrapParameters,
+			...(newFocusTrapParameteters as FocusTrapParameters)
+		};
 	}
 
 	function destroy() {
