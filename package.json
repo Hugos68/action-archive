@@ -29,7 +29,7 @@
 	},
 	"files": [
 		"dist",
-		"!dist/internal/**"
+		"!dist/docs/**"
 	],
 	"publishConfig": {
 		"access": "public"

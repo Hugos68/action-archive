@@ -6,7 +6,6 @@
 
 :root {
 	--header-height: 4rem;
-	--vertical-padding: 2rem;
 }
 
 body {
@@ -20,7 +19,7 @@ h3[id],
 h4[id],
 h5[id],
 h6[id] {
-	@apply scroll-mt-[calc(var(--header-height)+var(--vertical-padding))];
+	@apply scroll-mt-[calc(var(--header-height))];
 }
 
 .h1,
