@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Codeblock from '$lib/internal/components/Codeblock.svelte';
+	import Codeblock from '$lib/docs/components/Codeblock.svelte';
 	import { ArrowLeftIcon, ArrowRightIcon } from 'svelte-feather-icons';
 	import { createTabs, melt } from '@melt-ui/svelte';
 	import actionUsageCode from './action-usage.txt?raw';

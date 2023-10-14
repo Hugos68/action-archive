@@ -11,17 +11,19 @@
 	}
 </script>
 
-<div
-	class="bg-neutral-50 h-24 w-36 flex justify-center items-center rounded-md"
-	use:click_outside
-	on:click_outside={clickOutsideHandler}
->
-	{#if clickedOutside}
-		<p
-			class="text-center select-none font-bold text-neutral-950"
-			transition:fade={{ duration: 150 }}
-		>
-			Clicked outside!
-		</p>
-	{/if}
+<div class="py-32">
+	<div
+		class="bg-neutral-50 h-24 w-36 flex justify-center items-center rounded-md"
+		use:click_outside
+		on:click_outside={clickOutsideHandler}
+	>
+		{#if clickedOutside}
+			<p
+				class="text-center select-none font-bold text-neutral-950"
+				transition:fade={{ duration: 150 }}
+			>
+				Clicked outside!
+			</p>
+		{/if}
+	</div>
 </div>

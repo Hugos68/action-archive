@@ -5,8 +5,6 @@ export function portal(
 	portalParameters: PortalParameters = { target: document.body }
 ) {
 	function update({ target }: PortalParameters) {
-		node.remove();
-
 		if (target instanceof HTMLElement) {
 			target.appendChild(node);
 			return;

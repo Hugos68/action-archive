@@ -4,6 +4,6 @@ export interface FocusTrapParameters {
 }
 
 export interface FocusableChildren {
-	first: HTMLElement | null;
-	last: HTMLElement | null;
+	first: HTMLElement;
+	last: HTMLElement;
 }

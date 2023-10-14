@@ -1,9 +1,11 @@
 <script lang="ts">
 	import '../app.css';
-	import { page } from '$app/stores';
-	import { createTableOfContents } from '@melt-ui/svelte';
-	import TableOfContents from '../lib/internal/components/TableOfContents.svelte';
-	import { GithubIcon } from 'svelte-feather-icons';
+	import { createDialog, createTableOfContents, melt } from '@melt-ui/svelte';
+	import TableOfContents from '../lib/docs/components/TableOfContents.svelte';
+	import { GithubIcon, SidebarIcon, XIcon } from 'svelte-feather-icons';
+	import Navigation from '$lib/docs/components/Sidebar.svelte';
+	import { setContext } from 'svelte';
+	import { fly, fade } from 'svelte/transition';
 
 	const {
 		states: { headingsTree }
@@ -12,83 +14,38 @@
 		activeType: 'highest'
 	});
 
-	const overview = [
-		{
-			href: '/overview/introduction',
-			title: 'Introduction'
-		},
-		{
-			href: '/overview/getting-started',
-			title: 'Getting Started'
-		}
-	];
-
-	const actions = [
-		{
-			href: '/actions/button',
-			title: 'Button'
-		},
-		{
-			href: '/actions/click-outside',
-			title: 'Click Outside'
-		},
-		{
-			href: '/actions/focus-trap',
-			title: 'Focus Trap'
-		},
-		{
-			href: '/actions/portal',
-			title: 'Portal'
-		},
-		{
-			href: '/actions/intersect',
-			title: 'Intersect'
-		},
-		{
-			href: '/actions/resize',
-			title: 'Resize'
-		}
-	];
+	const drawer = createDialog();
+	const {
+		elements: { trigger, overlay, content, close, portalled },
+		states: { open }
+	} = drawer;
+	setContext('drawer', drawer);
 </script>
 
 <header
-	class="sticky top-0 p-4 bg-neutral-900 px-[clamp(1rem,10vw,25rem)] h-[var(--header-height)] flex justify-between items-center z-50"
+	class="sticky top-0 p-4 backdrop-blur-sm bg-neutral-900/75 px-[clamp(1rem,10vw,25rem)] h-[var(--header-height)] flex justify-between items-center z-50"
 >
-	<nav>
+	<nav class="flex items-center gap-2">
+		<button class="lg:hidden" use:melt={$trigger}>
+			<SidebarIcon />
+		</button>
 		<a href="/" class="font-bold text-lg">Action Archive</a>
 	</nav>
 	<nav class="flex gap-4">
 		<a title="Github" href="https://github.com/Hugos68/action-archive" target="_blank"
-			><GithubIcon class="inline" /></a
+			><GithubIcon /></a
 		>
 	</nav>
 </header>
 <main class="flex px-[clamp(1rem,10vw,25rem)]">
-	<aside
-		class="hidden sticky top-[var(--header-height)] h-full overflow-auto w-1/5 lg:flex flex-col py-[var(--vertical-padding)]"
-	>
-		<p class="text-lg font-semibold">Overview</p>
-		<nav class="flex flex-col gap-1 mt-2">
-			{#each overview as { href, title }}
-				<a {href} class="ml-2 hover:opacity-90" class:underline={$page.url.pathname === href}
-					>{title}</a
-				>
-			{/each}
-		</nav>
-		<p class="text-lg font-semibold mt-6">Actions</p>
-		<nav class="flex flex-col gap-1 mt-2">
-			{#each actions as { href, title }}
-				<a {href} class="ml-2 hover:opacity-90" class:underline={$page.url.pathname === href}
-					>{title}</a
-				>
-			{/each}
-		</nav>
-	</aside>
-	<div class="lg:w-3/5 overflow-y-auto lg:px-4 py-[var(--vertical-padding)]" data-toc-container>
+	<Navigation
+		class="hidden sticky top-[var(--header-height)] h-full overflow-auto w-1/5 lg:flex flex-col py-8"
+	/>
+	<div class="lg:w-3/5 overflow-y-auto lg:px-4 py-8" data-toc-container>
 		<slot />
 	</div>
 	<aside
-		class="hidden sticky top-[var(--header-height)] h-full overflow-auto w-1/5 lg:flex flex-col py-[var(--vertical-padding)]"
+		class="hidden sticky top-[var(--header-height)] h-full overflow-auto w-1/5 lg:flex flex-col py-8"
 	>
 		<p class="text-lg font-semibold">On this page:</p>
 		<nav class="ml-2 mt-2 flex flex-col">
@@ -98,17 +55,34 @@
 		</nav>
 	</aside>
 </main>
-<footer class="px-[clamp(1rem,10vw,25rem)] py-16">
-	<nav>
-		<p>
-			<GithubIcon class="inline" /> Found an issue?
-			<a
-				class="underline hover:opacity-90"
-				href="https://github.com/Hugos68/action-archive/issues/new"
-				target="_blank"
-			>
-				Report it here.
-			</a>
-		</p>
-	</nav>
+<footer class="px-[clamp(1rem,10vw,25rem)] py-32 flex justify-center items-center">
+	<p>
+		<GithubIcon class="inline" /> Found an issue?
+		<a
+			class="underline hover:opacity-90 text-end"
+			href="https://github.com/Hugos68/action-archive/issues/new"
+			target="_blank"
+		>
+			Report it here.
+		</a>
+	</p>
 </footer>
+
+<div use:melt={$portalled}>
+	{#if $open}
+		<div transition:fade use:melt={$overlay} class="fixed inset-0 z-50 bg-black/50" />
+		<div
+			transition:fly={{ x: -200 }}
+			use:melt={$content}
+			class="fixed left-0 top-0 z-50 h-screen bg-neutral-900
+			  shadow-lg px-[clamp(1rem,10vw,25rem)]"
+		>
+			<header class="h-[var(--header-height)] flex justify-end">
+				<button use:melt={$close}>
+					<XIcon />
+				</button>
+			</header>
+			<Navigation class="px-[clamp(1rem,10vw,25rem)] py-8" fromSideBar />
+		</div>
+	{/if}
+</div>
