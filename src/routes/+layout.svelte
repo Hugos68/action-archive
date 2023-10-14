@@ -64,26 +64,28 @@
 	</nav>
 </header>
 <main class="flex px-[clamp(1rem,10vw,25rem)]">
-	<aside
+	<div
 		class="hidden sticky top-[var(--header-height)] h-full overflow-auto w-1/5 lg:flex flex-col py-[var(--vertical-padding)]"
 	>
-		<p class="text-lg font-semibold">Overview</p>
-		<nav class="flex flex-col gap-1 mt-2">
-			{#each overview as { href, title }}
-				<a {href} class="ml-2 hover:opacity-90" class:underline={$page.url.pathname === href}
-					>{title}</a
-				>
-			{/each}
-		</nav>
-		<p class="text-lg font-semibold mt-6">Actions</p>
-		<nav class="flex flex-col gap-1 mt-2">
-			{#each actions as { href, title }}
-				<a {href} class="ml-2 hover:opacity-90" class:underline={$page.url.pathname === href}
-					>{title}</a
-				>
-			{/each}
-		</nav>
-	</aside>
+		<aside>
+			<p class="text-lg font-semibold">Overview</p>
+			<nav class="flex flex-col gap-1 mt-2">
+				{#each overview as { href, title }}
+					<a {href} class="ml-2 hover:opacity-90" class:underline={$page.url.pathname === href}
+						>{title}</a
+					>
+				{/each}
+			</nav>
+			<p class="text-lg font-semibold mt-6">Actions</p>
+			<nav class="flex flex-col gap-1 mt-2">
+				{#each actions as { href, title }}
+					<a {href} class="ml-2 hover:opacity-90" class:underline={$page.url.pathname === href}
+						>{title}</a
+					>
+				{/each}
+			</nav>
+		</aside>
+	</div>
 	<div class="lg:w-3/5 overflow-y-auto lg:px-4 py-[var(--vertical-padding)]" data-toc-container>
 		<slot />
 	</div>

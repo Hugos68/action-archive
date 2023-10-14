@@ -13,9 +13,7 @@
 </script>
 
 <div
-	class="relative flex justify-center items-center {!$pressed
-		? 'py-32 px-16'
-		: null} w-full border-2 border-neutral-50 rounded-md mt-4 bg-gradient-to-tr from-neutral-950/50 via-neutral-900 to-neutral-950/50"
+	class="relative flex justify-center items-center w-full border-2 border-neutral-50 rounded-md mt-4 bg-gradient-to-tr from-neutral-950/50 via-neutral-900 to-neutral-950/50"
 >
 	<button use:melt={$root} class="btn absolute top-4 right-4">
 		<svelte:component this={$pressed ? EyeIcon : CodeIcon} />
@@ -23,6 +21,8 @@
 	{#if $pressed}
 		<Codeblock {code} {language} />
 	{:else}
-		<slot />
+		<span class="overflow-auto">
+			<slot />
+		</span>
 	{/if}
 </div>
