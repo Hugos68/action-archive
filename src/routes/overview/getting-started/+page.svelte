@@ -39,7 +39,8 @@
 </p>
 <Codeblock class="mt-4" code={actionUsageCode} language="xml" />
 <p class="mt-4 italic">
-	Note: Not all actions have parameters and/or emit events, this is to showcase what it looks like if they do.
+	Note: Not all actions have parameters and/or emit events, this is to showcase what it looks like
+	if they do.
 </p>
 
 <div class="flex justify-between mt-36">
