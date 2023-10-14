@@ -1,0 +1,11 @@
+<script lang="ts">
+    import { intersect, type IntersectParameters } from 'action-archive';
+
+    const intersectParameters: IntersectParameters = {
+        root: document,
+        rootMargin: 0,
+        thresholds: [];
+    };
+</script>
+
+<div use:intersect={intersectParameters} />

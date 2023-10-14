@@ -11,7 +11,7 @@
 		headings: ['Name', 'Type', 'Default', 'Description'],
 		body: [
 			[
-				'initialFocus',
+				'root',
 				'boolean',
 				'true',
 				'Indicates wether the first focusable element should gain focus upon initialization'

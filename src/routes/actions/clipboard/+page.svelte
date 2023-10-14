@@ -19,7 +19,7 @@
 			[
 				'clipboard_copy',
 				'(event: CustomEvent<{ value: string | Blob }) => void',
-				'Callback that will be called when the value is copied to the clipboard'
+				'Emitted when the the value is copied to the clipboard'
 			]
 		]
 	};
