@@ -1,5 +1,12 @@
 # action-archive
 
+## 0.0.9
+
+### Patch Changes
+
+- 1cd04a5: Added code copy to docs
+- 1cd04a5: Added clipboard action
+
 ## 0.0.8
 
 ### Patch Changes
