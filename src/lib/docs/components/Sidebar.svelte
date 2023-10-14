@@ -20,7 +20,7 @@
 			<a
 				use:melt={$close}
 				{href}
-				class="{fromSideBar ? 'text-lg' : null} ml-2 hover:opacity-90"
+				class="{fromSideBar ? 'text-lg' : null} ml-2 hover:opacity-90 w-fit"
 				class:underline={$page.url.pathname === href}>{title}</a
 			>
 		{/each}
@@ -33,7 +33,7 @@
 			<a
 				use:melt={$close}
 				{href}
-				class="{fromSideBar ? 'text-lh' : null} ml-2 hover:opacity-90"
+				class="{fromSideBar ? 'text-lh' : null} ml-2 hover:opacity-90 w-fit"
 				class:underline={$page.url.pathname === href}>{title}</a
 			>
 		{/each}

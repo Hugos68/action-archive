@@ -23,7 +23,6 @@
 			};
 		}
 	}
-	
 </script>
 
 <svelte:head>
@@ -51,5 +50,3 @@
 		<a class="btn" {href}>{title}<ArrowRightIcon class="inline" /></a>
 	{/if}
 </div>
-
-

@@ -23,7 +23,7 @@
 </script>
 
 <header
-	class="sticky top-0 p-4 backdrop-blur-sm bg-neutral-900/75 px-[clamp(1rem,10vw,25rem)] h-[var(--header-height)] flex justify-between items-center z-50"
+	class="sticky top-0 py-4 backdrop-blur-sm bg-neutral-900/75 px-[clamp(1rem,10vw,25rem)] h-[var(--header-height)] flex justify-between items-center z-50"
 >
 	<nav class="flex items-center gap-2">
 		<button class="lg:hidden" use:melt={$trigger}>
@@ -77,7 +77,7 @@
 			class="fixed left-0 top-0 z-50 h-screen bg-neutral-900
 			  shadow-lg px-[clamp(1rem,10vw,25rem)]"
 		>
-			<header class="h-[var(--header-height)] flex justify-end">
+			<header class="h-[var(--header-height)] py-4 flex justify-end">
 				<button use:melt={$close}>
 					<XIcon />
 				</button>
