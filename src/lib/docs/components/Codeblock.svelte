@@ -22,7 +22,7 @@
 </script>
 
 <!-- eslint-disable -->
-<pre {...$$restProps} class="hljs w-full overflow-scroll p-4 rounded-md {$$props.class}"><code
+<pre {...$$restProps} class="hljs w-full overflow-auto p-4 rounded-md {$$props.class}"><code
 		class="language-{language}">{@html hljs.highlight(code, { language }).value.trim()}</code
 	></pre>
 <!-- eslint-enable -->
