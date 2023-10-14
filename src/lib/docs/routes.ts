@@ -21,6 +21,9 @@ export const actions: Action[] = [
 		name: 'click-outside'
 	},
 	{
+		name: 'clipboard'
+	},
+	{
 		name: 'focus-trap'
 	},
 	{
@@ -32,7 +35,7 @@ export const actions: Action[] = [
 	{
 		name: 'resize'
 	}
-];
+].sort((a, b) => (a.name > b.name ? 1 : -1));
 
 export function prettifyRoute(route: Route) {
 	const formatted = route.name.replace('-', ' ');

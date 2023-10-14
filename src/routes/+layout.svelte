@@ -8,10 +8,10 @@
 	import { fly, fade } from 'svelte/transition';
 
 	const {
-		states: { headingsTree }
+		states: { headingsTree, activeHeadingIdxs }
 	} = createTableOfContents({
 		selector: '[data-toc-container]',
-		activeType: 'highest'
+		activeType: 'all'
 	});
 
 	const drawer = createDialog();
@@ -49,8 +49,8 @@
 	>
 		<p class="text-lg font-semibold">On this page:</p>
 		<nav class="ml-2 mt-2 flex flex-col">
-			{#key $headingsTree}
-				<TableOfContents headingsTree={$headingsTree} />
+			{#key $headingsTree && $activeHeadingIdxs}
+				<TableOfContents headingsTree={$headingsTree} activeHeadingIdxs={$activeHeadingIdxs} />
 			{/key}
 		</nav>
 	</aside>

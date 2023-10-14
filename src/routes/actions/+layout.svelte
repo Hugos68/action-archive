@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import Codeblock from '$lib/docs/components/Codeblock.svelte';
-	import { actions, type Action, prettifyRoute, actionifyRoute } from '$lib/docs/routes';
+	import { actions, type Action, prettifyRoute } from '$lib/docs/routes';
 	import { ArrowLeftIcon, ArrowRightIcon } from 'svelte-feather-icons';
 
 	$: currentAction = actions.find(
@@ -24,6 +23,7 @@
 			};
 		}
 	}
+	
 </script>
 
 <svelte:head>
@@ -32,11 +32,6 @@
 
 <p class="opacity-50">Actions</p>
 <h1 class="h1 mt-4">{title}</h1>
-<Codeblock
-	class="mt-4"
-	code={`import { ${actionifyRoute(currentAction)} } from 'action-archive'`}
-	language="javascript"
-/>
 
 <slot />
 
@@ -56,3 +51,5 @@
 		<a class="btn" {href}>{title}<ArrowRightIcon class="inline" /></a>
 	{/if}
 </div>
+
+

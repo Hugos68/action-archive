@@ -9,7 +9,7 @@
 
 <div {...$$restProps} class="{$$props.class} overflow-auto">
 	<h3
-		class="h3 sticky left-0 text-end bg-neutral-900 w-min p-2 rounded-t-md"
+		class="h3 sticky left-0 text-end bg-neutral-900 w-min p-4 rounded-t-md"
 		id={structure.title.toLowerCase().replace(' ', '-')}
 	>
 		{structure.title}
@@ -25,7 +25,7 @@
 				{/each}
 			</tr>
 		</thead>
-		<tbody class="p-0">
+		<tbody>
 			{#each structure.body as row}
 				<tr>
 					{#each row as cell}
