@@ -14,6 +14,8 @@
 
 <p class="p opacity-50">Overview</p>
 <h1 class="h1 mt-4" id="getting-started">Getting Started</h1>
+
+<h2 class="h2 mt-12" id="installation">Installation</h2>
 <p class="p mt-4">To get started install Action Archive with your package manager of choice:</p>
 
 <div class="mt-4" use:melt={$root}>
