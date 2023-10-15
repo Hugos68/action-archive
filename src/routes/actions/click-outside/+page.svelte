@@ -11,7 +11,7 @@
 		headings: ['Name', 'Type', 'Description'],
 		body: [
 			[
-				'click_outside',
+				'aa_click_outside',
 				'(event: MouseEvent) => void',
 				'Callback that will be called when clicking outside of the element'
 			]

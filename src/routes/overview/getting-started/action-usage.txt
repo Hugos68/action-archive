@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { some_action, type SomeActionParameters } from 'action-archive';
+    import { action, type ActionParameters } from 'action-archive';
     
-    const someActionParameters: SomeActionParameters = { /* ... */ };
+    const actionParameters: ActionParameters = { /* ... */ };
 </script>
 
-<div use:some_action={someActionParameters} on:some_action_event />
+<div use:action={actionParameters} on:aa_action_event />

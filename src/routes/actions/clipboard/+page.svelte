@@ -17,7 +17,7 @@
 		headings: ['Name', 'Type', 'Description'],
 		body: [
 			[
-				'clipboard_copy',
+				'aa_copy',
 				'(event: CustomEvent<{ value: string | Blob }) => void',
 				'Emitted when the the value is copied to the clipboard'
 			]

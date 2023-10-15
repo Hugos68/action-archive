@@ -13,7 +13,7 @@
 </p>
 
 <h2 class="h2 mt-12" id="usage">Usage</h2>
-<Codeblock class="p-3 rounded-md mt-4" code={basicUsageCode} language="xml" />
+<Codeblock class="mt-4" code={basicUsageCode} language="xml" />
 
 <h2 class="h2 mt-12" id="example">Example</h2>
 <p class="p mt-4">Turn off Javascript to see the link in action!</p>

@@ -15,7 +15,7 @@
 <div
 	class="relative border-2 border-neutral-50 rounded-md mt-4 bg-gradient-to-tr from-neutral-950/50 via-neutral-900 to-neutral-950/50"
 >
-	<button use:melt={$root} class="btn absolute top-4 right-4 z-10">
+	<button use:melt={$root} class="btn absolute top-3 right-3 z-10">
 		<svelte:component this={$pressed ? EyeIcon : CodeIcon} size="20" />
 	</button>
 	{#if $pressed}

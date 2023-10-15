@@ -1,5 +1,6 @@
 import type { ActionReturn } from 'svelte/action';
 import type { IntersectEvents, IntersectParameters } from './types';
+import { emit } from '../../internal/emit';
 
 export function intersect(
 	node: HTMLElement,
@@ -9,14 +10,9 @@ export function intersect(
 
 	function onIntersect(entries: IntersectionObserverEntry[]) {
 		const entry = entries[0];
-		node.dispatchEvent(new CustomEvent('intersect', { detail: { entry } }));
-
-		if (entries[0].isIntersecting) {
-			node.dispatchEvent(new CustomEvent('intersect_enter', { detail: { entry } }));
-		}
-		if (!entries[0].isIntersecting) {
-			node.dispatchEvent(new CustomEvent('intersect_exit', { detail: { entry } }));
-		}
+		emit(node, 'intersect', { entry });
+		if (entries[0].isIntersecting) emit(node, 'intersect_enter', { entry });
+		if (!entries[0].isIntersecting) emit(node, 'intersect_leave', { entry });
 	}
 
 	function update(newIntersectParameters: IntersectParameters) {

@@ -1,5 +1,6 @@
 import type { ActionReturn } from 'svelte/action';
 import type { ClipboardEvents, ClipboardParameters } from './types';
+import { emit } from '../../internal/emit';
 
 export function clipboard(
 	node: HTMLElement,
@@ -17,9 +18,7 @@ export function clipboard(
 		if (typeof value === 'string') navigator.clipboard.writeText(value);
 		if (value instanceof Blob)
 			navigator.clipboard.write([new ClipboardItem({ [value.type]: value })]);
-		node.dispatchEvent(
-			new CustomEvent('clipboard_copy', { detail: { value: clipboardParameters.value } })
-		);
+		emit(node, 'copy', { value });
 	}
 
 	function update(newClipboardParameters: ClipboardParameters) {

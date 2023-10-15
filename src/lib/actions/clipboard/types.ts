@@ -3,5 +3,5 @@ export type ClipboardParameters = {
 };
 
 export type ClipboardEvents = {
-	'on:clipboard_copy'?: (event: CustomEvent<{ value: string | Blob }>) => void;
+	'on:aa_copy'?: (event: CustomEvent<{ value: string | Blob }>) => void;
 };

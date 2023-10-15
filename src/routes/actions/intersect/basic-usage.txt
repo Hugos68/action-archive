@@ -10,7 +10,7 @@
 
 <div 
     use:intersect={intersectParameters} 
-    on:intersect={...} 
-    on:intersect_enter={...} 
-    on:intersect_exit={...} 
+    on:aa_intersect={...} 
+    on:aa_intersect_enter={...} 
+    on:aa_intersect_leave={...} 
 />

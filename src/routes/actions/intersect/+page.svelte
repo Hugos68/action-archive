@@ -36,19 +36,19 @@
 		headings: ['Name', 'Type', 'Description'],
 		body: [
 			[
-				'intersect',
+				'aa_intersect',
 				'(event: CustomEvent<{ entry: IntersectionObserverEntry }>) => void',
 				'Emitted when the element intersects with the root.'
 			],
 			[
-				'intersect_enter',
+				'aa_intersect_enter',
 				'(event: CustomEvent<{ entry: IntersectionObserverEntry }>) => void',
 				'Emitted when the element enters the root.'
 			],
 			[
-				'intersect_exit',
+				'aa_intersect_leave',
 				'(event: CustomEvent<{ entry: IntersectionObserverEntry }>) => void',
-				'Emitted when the element exits the root.'
+				'Emitted when the element leaves the root.'
 			]
 		]
 	};

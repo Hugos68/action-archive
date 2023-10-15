@@ -1,3 +1,3 @@
 export type ClickOutsideEvents = {
-	'on:click_outside'?: (event: CustomEvent) => void;
+	'on:aa_click_outside'?: (event: CustomEvent) => void;
 };

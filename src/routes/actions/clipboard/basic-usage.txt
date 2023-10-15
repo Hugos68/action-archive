@@ -6,4 +6,4 @@
     };
 </script>
 
-<button use:clipboard={clipboardParameters} on:clipboard_copy={...} >Copy</button>
+<button use:clipboard={clipboardParameters} on:aa_copy={...} >Copy</button>
