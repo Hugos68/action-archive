@@ -30,7 +30,7 @@
 	they are consistent and easy to use.
 </p>
 
-<h2 class="h2 mt-12" id="motiviation">Design Choice</h2>
+<h2 class="h2 mt-12" id="design-choice">Design Choice</h2>
 <p class="p mt-4">
 	Action Archive uses a specific naming convention for custom events (aa_{'<'}action{'>'}_{'<'}event{'>'}),
 	and, although some may find this ugly and/or verbose, this prevents Action Archive events from
