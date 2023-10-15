@@ -1,17 +1,10 @@
 import type { ActionReturn } from 'svelte/action';
-import type { IntersectParameters } from './types';
+import type { IntersectEvents, IntersectParameters } from './types';
 
 export function intersect(
 	node: HTMLElement,
 	intersectParameters?: IntersectParameters
-): ActionReturn<
-	undefined,
-	{
-		'on:intersect': (event: CustomEvent<{ entry: IntersectionObserverEntry }>) => void;
-		'on:intersect_enter': (event: CustomEvent<{ entry: IntersectionObserverEntry }>) => void;
-		'on:intersect_exit': (event: CustomEvent<{ entry: IntersectionObserverEntry }>) => void;
-	}
-> {
+): ActionReturn<IntersectParameters, IntersectEvents> {
 	let intersectionObserver = new IntersectionObserver(onIntersect, intersectParameters);
 
 	function onIntersect(entries: IntersectionObserverEntry[]) {
@@ -26,12 +19,9 @@ export function intersect(
 		}
 	}
 
-	function update(newIntersectParameters: unknown) {
+	function update(newIntersectParameters: IntersectParameters) {
 		intersectionObserver.disconnect();
-		intersectionObserver = new IntersectionObserver(
-			onIntersect,
-			newIntersectParameters as IntersectParameters
-		);
+		intersectionObserver = new IntersectionObserver(onIntersect, newIntersectParameters);
 		intersectionObserver.observe(node);
 	}
 

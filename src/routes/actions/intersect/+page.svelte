@@ -39,6 +39,16 @@
 				'intersect',
 				'(event: CustomEvent<{ entry: IntersectionObserverEntry }>) => void',
 				'Emitted when the element intersects with the root.'
+			],
+			[
+				'intersect_enter',
+				'(event: CustomEvent<{ entry: IntersectionObserverEntry }>) => void',
+				'Emitted when the element enters the root.'
+			],
+			[
+				'intersect_exit',
+				'(event: CustomEvent<{ entry: IntersectionObserverEntry }>) => void',
+				'Emitted when the element exits the root.'
 			]
 		]
 	};

@@ -1,13 +1,10 @@
 import type { ActionReturn } from 'svelte/action';
-import type { ClipboardParameters } from './types';
+import type { ClipboardEvents, ClipboardParameters } from './types';
 
 export function clipboard(
 	node: HTMLElement,
 	clipboardParameters: ClipboardParameters
-): ActionReturn<
-	undefined,
-	{ 'on:clipboard_copy': (event: CustomEvent<{ value: string | Blob }>) => void }
-> {
+): ActionReturn<ClipboardParameters, ClipboardEvents> {
 	function clickHandler() {
 		if (!navigator.clipboard) {
 			console.warn(
@@ -25,11 +22,8 @@ export function clipboard(
 		);
 	}
 
-	function update(newClipboardParameters: unknown) {
-		clipboardParameters = {
-			...clipboardParameters,
-			...(newClipboardParameters as ClipboardParameters)
-		};
+	function update(newClipboardParameters: ClipboardParameters) {
+		clipboardParameters = newClipboardParameters;
 	}
 
 	function destroy() {

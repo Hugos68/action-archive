@@ -4,6 +4,7 @@
 
 	let clickedOutside = false;
 	let timer: ReturnType<typeof setTimeout>;
+
 	function clickOutsideHandler() {
 		clickedOutside = true;
 		if (timer) clearTimeout(timer);
