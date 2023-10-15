@@ -11,11 +11,12 @@
 		headings: ['Name', 'Type', 'Default', 'Description'],
 		body: [
 			[
-				'root',
+				'initialFocus',
 				'boolean',
 				'true',
 				'Indicates wether the first focusable element should gain focus upon initialization'
-			]
+			],
+			['disabled', 'boolean', 'false', 'Indicates wether the focus trap should be disabled or not']
 		]
 	};
 </script>
