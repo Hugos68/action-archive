@@ -11,8 +11,8 @@ export function intersect(
 	function onIntersect(entries: IntersectionObserverEntry[]) {
 		const entry = entries[0];
 		emit(node, 'intersect', { entry });
-		if (entries[0].isIntersecting) emit(node, 'intersect_enter', { entry });
-		if (!entries[0].isIntersecting) emit(node, 'intersect_leave', { entry });
+		if (entries[0].isIntersecting) emit(node, 'enter', { entry });
+		if (!entries[0].isIntersecting) emit(node, 'leave', { entry });
 	}
 
 	function update(newIntersectParameters: IntersectParameters) {
