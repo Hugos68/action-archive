@@ -1,5 +1,11 @@
 # action-archive
 
+## 0.3.1
+
+### Patch Changes
+
+- 0efd5c3: Fixed password reveal hold option not working properly on touch screen devices
+
 ## 0.3.0
 
 ### Minor Changes
