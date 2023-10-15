@@ -12,14 +12,14 @@ export function password_reveal(
 		inputEl.type = inputEl.type === 'text' ? 'password' : 'text';
 	}
 
-	function mousedownHandler() {
+	function poinerdownHandler() {
 		if (type !== 'hold') return;
 		const inputEl = getElementFromStringOrElement(target);
 		if (!inputEl) return;
 		inputEl.type = 'text';
 	}
 
-	function mouseupHandler() {
+	function pointerupHandler() {
 		if (type !== 'hold') return;
 		const inputEl = getElementFromStringOrElement(target);
 		if (!inputEl) return;
@@ -33,13 +33,13 @@ export function password_reveal(
 
 	function destroy() {
 		node.removeEventListener('click', clickHandler);
-		node.removeEventListener('mousedown', mousedownHandler);
-		node.removeEventListener('mouseup', mouseupHandler);
+		node.removeEventListener('pointerdown', poinerdownHandler);
+		node.removeEventListener('pointerup', pointerupHandler);
 	}
 
 	node.addEventListener('click', clickHandler);
-	node.addEventListener('mousedown', mousedownHandler);
-	node.addEventListener('mouseup', mouseupHandler);
+	node.addEventListener('mousedown', poinerdownHandler);
+	node.addEventListener('pointerup', pointerupHandler);
 
 	return { update, destroy };
 }
