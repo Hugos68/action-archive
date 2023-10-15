@@ -17,16 +17,16 @@
 		headings: ['Name', 'Type', 'Description'],
 		body: [
 			[
-				'clipboard_copy',
+				'aa_copy',
 				'(event: CustomEvent<{ value: string | Blob }) => void',
-				'Callback that will be called when the value is copied to the clipboard'
+				'Emitted when the the value is copied to the clipboard'
 			]
 		]
 	};
 </script>
 
 <h2 class="h2 mt-12" id="description">Description</h2>
-<p class="mt-4">The Clipboard action allows for copying data to the clipboard, contains</p>
+<p class="p mt-4">The Clipboard action allows for copying data to the clipboard, contains</p>
 
 <h2 class="h2 mt-12" id="usage">Usage</h2>
 <Codeblock class="mt-4" code={basicUsageCode} language="xml" />

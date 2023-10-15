@@ -19,7 +19,7 @@
 </script>
 
 {#each headingsTree as { title, index, node, children }}
-	<a class:underline={activeHeadingIdxs.includes(index)} class={depthMap[depth]} href="#{node.id}"
+	<a class:opacity-50={!activeHeadingIdxs.includes(index)} class={depthMap[depth]} href="#{node.id}"
 		>{title}</a
 	>
 	{#if children}

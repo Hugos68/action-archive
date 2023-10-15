@@ -1,14 +1,13 @@
 import type { ActionReturn } from 'svelte/action';
+import type { ClickOutsideEvents } from './types';
+import { emit } from '../../internal/emit';
 
-export function click_outside(
-	node: HTMLElement
-): ActionReturn<undefined, { 'on:click_outside': (event: CustomEvent) => void }> {
+export function click_outside(node: HTMLElement): ActionReturn<undefined, ClickOutsideEvents> {
 	function clickHandler(event: MouseEvent) {
 		if (node.contains(event.target as Node)) {
 			return;
 		}
-
-		node.dispatchEvent(new CustomEvent('click_outside'));
+		emit(node, 'click_outside');
 	}
 
 	function destroy() {

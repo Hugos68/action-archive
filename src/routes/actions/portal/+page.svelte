@@ -21,7 +21,7 @@
 </script>
 
 <h2 class="h2 mt-12" id="description">Description</h2>
-<p class="mt-4">
+<p class="p mt-4">
 	The Portal action can be used to move an element to another location in the DOM, this can be
 	useful for example when you want to render overlays on your body.
 </p>

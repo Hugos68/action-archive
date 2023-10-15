@@ -23,14 +23,13 @@
 			};
 		}
 	}
-	
 </script>
 
 <svelte:head>
 	<title>{title} | Action Archive</title>
 </svelte:head>
 
-<p class="opacity-50">Actions</p>
+<p class="p opacity-50">Actions</p>
 <h1 class="h1 mt-4">{title}</h1>
 
 <slot />
@@ -51,5 +50,3 @@
 		<a class="btn" {href}>{title}<ArrowRightIcon class="inline" /></a>
 	{/if}
 </div>
-
-

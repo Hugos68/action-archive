@@ -12,10 +12,10 @@
 	}
 </script>
 
-<div class="py-32 px-4 flex gap-4">
-	<input class="input" bind:value />
+<div class="py-32 px-8 flex justify-center items-center gap-4">
+	<input class="input !max-w-xs" bind:value />
 
-	<button class="btn" use:clipboard={{ value }} on:clipboard_copy={clipboardCopyHandler}
+	<button class="btn" use:clipboard={{ value }} on:aa_copy={clipboardCopyHandler}
 		>{buttonText}</button
 	>
 </div>

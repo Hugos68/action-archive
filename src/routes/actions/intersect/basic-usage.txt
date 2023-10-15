@@ -1,0 +1,16 @@
+<script lang="ts">
+    import { intersect, type IntersectParameters } from 'action-archive';
+
+    const intersectParameters: IntersectParameters = {
+        root: document.documentElement,
+        rootMargin: "0px 0px 0px 0px",
+        thresholds: [0]
+    };
+</script>
+
+<div 
+    use:intersect={intersectParameters} 
+    on:aa_intersect={...} 
+    on:aa_intersect_enter={...} 
+    on:aa_intersect_leave={...} 
+/>

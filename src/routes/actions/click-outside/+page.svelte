@@ -11,7 +11,7 @@
 		headings: ['Name', 'Type', 'Description'],
 		body: [
 			[
-				'click_outside',
+				'aa_click_outside',
 				'(event: MouseEvent) => void',
 				'Callback that will be called when clicking outside of the element'
 			]
@@ -20,7 +20,7 @@
 </script>
 
 <h2 class="h2 mt-12" id="description">Description</h2>
-<p class="mt-4">
+<p class="p mt-4">
 	The Click Outside action can be used to detect clicks outside of an element, this can be useful
 	for example when you want to close a modal when the user clicks outside of it.
 </p>

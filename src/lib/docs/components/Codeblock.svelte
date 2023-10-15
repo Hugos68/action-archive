@@ -35,16 +35,16 @@
 	}
 </script>
 
-<div {...$$restProps} class="hljs relative w-full rounded-md overflow-auto {$$props.class}">
+<div {...$$restProps} class="hljs relative w-full rounded-md overflow-hidden {$$props.class}">
 	<button
-		class="btn absolute w-fit h-fit top-4 {fromExample ? 'right-[4.5rem]' : 'right-4'}"
+		class="btn absolute w-fit h-fit top-3 {fromExample ? 'right-[4.25rem]' : 'right-3'}"
 		use:clipboard={{ value: code }}
-		on:clipboard_copy={clipboardcopyHandler}
+		on:aa_copy={clipboardcopyHandler}
 	>
 		<svelte:component this={copied ? CheckIcon : CopyIcon} size="20" />
 	</button>
 	<!-- eslint-disable -->
-	<pre class="hljs p-4"><code class="language-{language}"
+	<pre class="hljs p-4 overflow-auto"><code class="language-{language}"
 			>{@html hljs.highlight(code, { language }).value.trim()}</code
 		></pre>
 	<!-- eslint-enable -->

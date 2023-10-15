@@ -2,4 +2,4 @@
     import { click_outside } from 'action-archive';
 </script>
 
-<div use:click_outside on:click_outside={...} />
+<div use:click_outside on:aa_click_outside={...} />

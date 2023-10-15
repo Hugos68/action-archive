@@ -8,7 +8,7 @@
 	class="bg-neutral-50 w-full h-full flex justify-center items-center rounded-md p-2"
 	use:portal={{ target }}
 >
-	<p class="text-center select-none font-bold text-neutral-950">Portal me!</p>
+	<p class="p text-center select-none font-bold text-neutral-950">Portal me!</p>
 </div>
 
 <div class="flex flex-col gap-12 py-32 px-4">
@@ -23,14 +23,14 @@
 				class="h-full p-2 rounded-md flex justify-center items-center border-2 border-neutral-50"
 				id="container1"
 			/>
-			<p class="text-center font-semibold">#container1</p>
+			<p class="p text-center font-semibold">#container1</p>
 		</div>
 		<div class="flex-1">
 			<div
 				class="h-full p-2 rounded-md flex justify-center items-center border-2 border-neutral-50"
 				id="container2"
 			/>
-			<p class="text-center font-semibold">#container2</p>
+			<p class="p text-center font-semibold">#container2</p>
 		</div>
 	</div>
 </div>

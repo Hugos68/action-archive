@@ -4,6 +4,7 @@
 
 	let clickedOutside = false;
 	let timer: ReturnType<typeof setTimeout>;
+
 	function clickOutsideHandler() {
 		clickedOutside = true;
 		if (timer) clearTimeout(timer);
@@ -11,11 +12,11 @@
 	}
 </script>
 
-<div class="py-32">
+<div class="py-32 px-8 flex justify-center items-center">
 	<div
 		class="bg-neutral-50 h-24 w-36 flex justify-center items-center rounded-md"
 		use:click_outside
-		on:click_outside={clickOutsideHandler}
+		on:aa_click_outside={clickOutsideHandler}
 	>
 		{#if clickedOutside}
 			<p

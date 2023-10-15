@@ -11,7 +11,7 @@
 		headings: ['Name', 'Type', 'Default', 'Description'],
 		body: [
 			[
-				'initialFocus',
+				'root',
 				'boolean',
 				'true',
 				'Indicates wether the first focusable element should gain focus upon initialization'
@@ -21,7 +21,7 @@
 </script>
 
 <h2 class="h2 mt-12" id="description">Description</h2>
-<p class="mt-4">
+<p class="p mt-4">
 	The Focus Trap action can be used to trap a users focus inside of an element, this can be useful
 	to manage focus inside of a modal for example.
 </p>
