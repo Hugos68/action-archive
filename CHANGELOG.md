@@ -1,5 +1,11 @@
 # action-archive
 
+## 0.3.0
+
+### Minor Changes
+
+- 28a6de0: Added password reveal action
+
 ## 0.2.1
 
 ### Patch Changes
