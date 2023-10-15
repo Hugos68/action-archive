@@ -1,5 +1,12 @@
 # action-archive
 
+## 0.2.0
+
+### Minor Changes
+
+- d7781d4: Migrated svelte-maskify to action archive under the action name: "mask"
+- f251d1d: Added resize action
+
 ## 0.1.0
 
 ### Minor Changes
