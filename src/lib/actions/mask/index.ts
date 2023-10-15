@@ -1,19 +1,19 @@
 import type { MaskParameters } from './types';
 
-export function mask(node: HTMLInputElement, maskParameters: MaskParameters) {
+export function mask(node: HTMLInputElement, { mask }: MaskParameters) {
 	let lastInputValue = node.value;
 	function inputHandler() {
 		const pressedBackspace = lastInputValue.length - node.value.length === 1;
 		if (!pressedBackspace) {
 			const input = node.value;
-			node.value = cleanAndFormat(input, maskParameters.mask);
+			node.value = cleanAndFormat(input, mask);
 		}
 		lastInputValue = node.value;
 	}
 
-	function update(newMaskParameters: MaskParameters) {
-		maskParameters = newMaskParameters;
-		node.value = cleanAndFormat(node.value, maskParameters.mask);
+	function update({ mask: newMask }: MaskParameters) {
+		mask = newMask;
+		node.value = cleanAndFormat(node.value, mask);
 	}
 
 	function destroy() {

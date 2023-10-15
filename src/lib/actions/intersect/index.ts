@@ -4,9 +4,9 @@ import { emit } from '../../internal/emit';
 
 export function intersect(
 	node: HTMLElement,
-	intersectParameters?: IntersectParameters
+	{ root = null, rootMargin = '0px 0px 0px 0px', threshold = [0] }: IntersectParameters
 ): ActionReturn<IntersectParameters, IntersectEvents> {
-	let intersectionObserver = new IntersectionObserver(onIntersect, intersectParameters);
+	let intersectionObserver = new IntersectionObserver(onIntersect, { root, rootMargin, threshold });
 
 	function onIntersect(entries: IntersectionObserverEntry[]) {
 		const entry = entries[0];
@@ -15,9 +15,16 @@ export function intersect(
 		if (!entries[0].isIntersecting) emit(node, 'leave', { entry });
 	}
 
-	function update(newIntersectParameters: IntersectParameters) {
+	function update({
+		root: newRoot = null,
+		rootMargin: newRootMargin = '0px 0px 0px 0px',
+		threshold: newThreshold = [0]
+	}: IntersectParameters) {
+		root = newRoot;
+		rootMargin = newRootMargin;
+		threshold = newThreshold;
 		intersectionObserver.disconnect();
-		intersectionObserver = new IntersectionObserver(onIntersect, newIntersectParameters);
+		intersectionObserver = new IntersectionObserver(onIntersect, { root, rootMargin, threshold });
 		intersectionObserver.observe(node);
 	}
 

@@ -1,3 +1,3 @@
 export type PortalParameters = {
-	target: string | HTMLElement;
+	target: HTMLElement | string;
 };

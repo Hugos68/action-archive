@@ -17,7 +17,7 @@ const focusableElementSelector = [
 
 export function focus_trap(
 	node: HTMLElement,
-	focusTrapParameters: FocusTrapParameters = { initialFocus: true }
+	{ initialFocus = true, disabled = false }: FocusTrapParameters
 ) {
 	function determineFocusableElements(): FocusableChildren {
 		const focusableElements: HTMLElement[] = (
@@ -31,7 +31,6 @@ export function focus_trap(
 	}
 
 	function keydownHandler(event: KeyboardEvent): void {
-		const { disabled } = focusTrapParameters;
 		const { first, last } = determineFocusableElements();
 		const isTabKey = event.key === 'Tab';
 
@@ -47,16 +46,17 @@ export function focus_trap(
 		}
 	}
 
-	if (focusTrapParameters.initialFocus) {
+	if (initialFocus) {
 		const { first } = determineFocusableElements();
 		first?.focus();
 	}
 
-	function update(newFocusTrapParameteters: unknown) {
-		focusTrapParameters = {
-			...focusTrapParameters,
-			...(newFocusTrapParameteters as FocusTrapParameters)
-		};
+	function update({
+		initialFocus: newInitialFocus = true,
+		disabled: newDisabled = false
+	}: FocusTrapParameters) {
+		initialFocus = newInitialFocus;
+		disabled = newDisabled;
 	}
 
 	function destroy() {

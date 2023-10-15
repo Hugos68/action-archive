@@ -7,7 +7,6 @@
 	import resizeExampleRaw from './ResizeExample.svelte?raw';
 
 	const eventsStructure = {
-		title: 'Events',
 		headings: ['Name', 'Type', 'Description'],
 		body: [
 			[
@@ -31,4 +30,6 @@
 </Example>
 
 <h2 class="h2 mt-12" id="api">API</h2>
+
+<h3 class="h3 mt-12" id="events">Events</h3>
 <DocTable class="mt-4" structure={eventsStructure} />
