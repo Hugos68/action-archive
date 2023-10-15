@@ -1,5 +1,11 @@
 # action-archive
 
+## 0.2.1
+
+### Patch Changes
+
+- f163e8f: Hotfix: Fixed intersect action not emitting leave and enter events
+
 ## 0.2.0
 
 ### Minor Changes
