@@ -1,9 +1,4 @@
-export interface FocusTrapParameters {
+export type FocusTrapParameters = {
 	initialFocus?: boolean;
 	disabled?: boolean;
-}
-
-export interface FocusableChildren {
-	first: HTMLElement;
-	last: HTMLElement;
-}
+};

@@ -55,7 +55,7 @@
 </script>
 
 <h2 class="h2 mt-12" id="description">Description</h2>
-<p class="mt-4">
+<p class="p mt-4">
 	The Intersect action observes the intersection of an element and emits intersect events.
 </p>
 

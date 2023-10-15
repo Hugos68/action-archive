@@ -12,9 +12,9 @@
 	});
 </script>
 
-<p class="opacity-50">Overview</p>
+<p class="p opacity-50">Overview</p>
 <h1 class="h1 mt-4" id="getting-started">Getting Started</h1>
-<p class="mt-4">To get started install Action Archive with your package manager of choice:</p>
+<p class="p mt-4">To get started install Action Archive with your package manager of choice:</p>
 
 <div class="mt-4" use:melt={$root}>
 	<div use:melt={$list} class="flex gap-2">
@@ -33,12 +33,12 @@
 </div>
 
 <h2 class="h2 mt-12" id="usage">Usage</h2>
-<p class="mt-4">
+<p class="p mt-4">
 	Action Archive always exports actions compatible with Svelte's action syntax. This means you can
 	use any of the actions provided by Action Archive like this:
 </p>
 <Codeblock class="mt-4" code={actionUsageCode} language="xml" />
-<p class="mt-4 italic">
+<p class="p mt-4 italic">
 	Note: Not all actions have parameters and/or emit events, this is to showcase what it looks like
 	if they do.
 </p>

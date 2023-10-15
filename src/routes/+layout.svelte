@@ -47,7 +47,7 @@
 	<aside
 		class="hidden sticky top-[var(--header-height)] h-full overflow-auto w-1/5 lg:flex flex-col py-8"
 	>
-		<p class="text-lg font-semibold">On this page:</p>
+		<p class="p text-lg font-semibold">On this page:</p>
 		<nav class="ml-2 mt-2 flex flex-col">
 			{#key $headingsTree && $activeHeadingIdxs}
 				<TableOfContents headingsTree={$headingsTree} activeHeadingIdxs={$activeHeadingIdxs} />

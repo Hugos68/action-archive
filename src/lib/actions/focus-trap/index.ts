@@ -1,4 +1,9 @@
-import type { FocusTrapParameters, FocusableChildren } from './types.js';
+import type { FocusTrapParameters } from './types.js';
+
+type FocusableChildren = {
+	first: HTMLElement;
+	last: HTMLElement;
+};
 
 const focusableElementSelector = [
 	'a[href]',

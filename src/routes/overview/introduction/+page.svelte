@@ -2,9 +2,9 @@
 	import { ArrowRightIcon } from 'svelte-feather-icons';
 </script>
 
-<p class="opacity-50">Overview</p>
+<p class="p opacity-50">Overview</p>
 <h1 class="h1 mt-4" id="introduction">Introduction</h1>
-<p class="mt-4">
+<p class="p mt-4">
 	Action Archive is a collection of actions for Svelte aimed to reduce the amount of boilerplate
 	throughout projects.
 </p>
@@ -18,7 +18,7 @@
 </ul>
 
 <h2 class="h2 mt-12" id="motiviation">Motivation</h2>
-<p class="mt-4">
+<p class="p mt-4">
 	When using Svelte you can use this powerful thing called <a
 		class="underline hover:opacity-90"
 		href="https://svelte.dev/docs/element-directives#use-action"
@@ -31,7 +31,7 @@
 </p>
 
 <h2 class="h2 mt-12" id="inspiration">Inspiration</h2>
-<p class="mt-4">
+<p class="p mt-4">
 	Credits to both Skeleton and Melt as they inspired some of the featured actions.
 	<span class="block">
 		- <a class="underline hover:opacity-90 font-bold" href="https://www.skeleton.dev/">Skeleton</a>
@@ -40,7 +40,7 @@
 		- <a class="underline hover:opacity-90 font-bold" href="https://www.melt-ui.com/">Melt</a>
 	</span>
 </p>
-<p class="mt-4">Fun fact: This website was built with Melt!</p>
+<p class="p mt-4">Fun fact: This website was built with Melt!</p>
 
 <div class="flex justify-end mt-36">
 	<a class="btn bg-neutral-500" href="/overview/getting-started"

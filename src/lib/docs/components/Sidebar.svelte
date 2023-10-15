@@ -12,7 +12,7 @@
 </script>
 
 <aside {...$$restProps}>
-	<p class="{fromSideBar ? 'text-2xl' : 'text-lg'} font-semibold">Overview</p>
+	<p class="p {fromSideBar ? 'text-2xl' : 'text-lg'} font-semibold">Overview</p>
 	<nav class="flex flex-col gap-1 mt-2">
 		{#each overviews as overview}
 			{@const href = `/overview/${overview.name}`}
@@ -25,7 +25,7 @@
 			>
 		{/each}
 	</nav>
-	<p class="{fromSideBar ? 'text-2xl' : 'text-lg'} font-semibold mt-6">Actions</p>
+	<p class="p {fromSideBar ? 'text-2xl' : 'text-lg'} font-semibold mt-6">Actions</p>
 	<nav class="flex flex-col gap-1 mt-2">
 		{#each actions as action}
 			{@const href = `/actions/${action.name}`}

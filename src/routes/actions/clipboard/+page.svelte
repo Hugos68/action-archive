@@ -26,7 +26,7 @@
 </script>
 
 <h2 class="h2 mt-12" id="description">Description</h2>
-<p class="mt-4">The Clipboard action allows for copying data to the clipboard, contains</p>
+<p class="p mt-4">The Clipboard action allows for copying data to the clipboard, contains</p>
 
 <h2 class="h2 mt-12" id="usage">Usage</h2>
 <Codeblock class="mt-4" code={basicUsageCode} language="xml" />
