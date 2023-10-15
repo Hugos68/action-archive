@@ -2,6 +2,7 @@
 	import { createToggle, melt } from '@melt-ui/svelte';
 	import { CodeIcon, EyeIcon } from 'svelte-feather-icons';
 	import Codeblock from './Codeblock.svelte';
+	import { fly } from 'svelte/transition';
 
 	export let code: string = '';
 	export let language: string;
@@ -13,11 +14,20 @@
 </script>
 
 <div
-	class="relative border-2 border-neutral-50 rounded-md mt-4 bg-gradient-to-tr from-neutral-950/50 via-neutral-900 to-neutral-950/50"
+	class="relative rounded-md mt-4 bg-gradient-to-tr from-zinc-950/50 via-zinc-900 to-zinc-950/50"
 >
-	<button use:melt={$root} class="btn absolute top-3 right-3 z-10">
-		<svelte:component this={$pressed ? EyeIcon : CodeIcon} size="20" />
+	<button use:melt={$root} class="btn absolute top-3.5 right-3.5 z-10">
+		{#if $pressed}
+			<div in:fly={{ y: -4 }}>
+				<EyeIcon size="15" />
+			</div>
+		{:else}
+			<div in:fly={{ y: 4 }}>
+				<CodeIcon size="15" />
+			</div>
+		{/if}
 	</button>
+
 	{#if $pressed}
 		<Codeblock {code} {language} fromExample />
 	{:else}

@@ -10,6 +10,7 @@
 	import shell from 'highlight.js/lib/languages/shell';
 	import { clipboard } from '$lib';
 	import { CheckIcon, CopyIcon } from 'svelte-feather-icons';
+	import { fly } from 'svelte/transition';
 
 	hljs.registerLanguage('xml', xml);
 	hljs.registerLanguage('css', css);
@@ -37,11 +38,19 @@
 
 <div {...$$restProps} class="hljs relative w-full rounded-md overflow-hidden {$$props.class}">
 	<button
-		class="btn absolute w-fit h-fit top-3 {fromExample ? 'right-[4.25rem]' : 'right-3'}"
+		class="btn absolute w-fit h-fit top-3.5 {fromExample ? 'right-[4.25rem]' : 'right-3.5'}"
 		use:clipboard={{ value: code }}
 		on:aa_copy={clipboardcopyHandler}
 	>
-		<svelte:component this={copied ? CheckIcon : CopyIcon} size="20" />
+		{#if copied}
+			<div in:fly={{ y: -4 }}>
+				<CheckIcon size="15" />
+			</div>
+		{:else}
+			<div in:fly={{ y: 4 }}>
+				<CopyIcon size="15" />
+			</div>
+		{/if}
 	</button>
 	<!-- eslint-disable -->
 	<pre class="hljs p-4 overflow-auto"><code class="language-{language}"
