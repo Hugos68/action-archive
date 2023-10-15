@@ -30,7 +30,7 @@
 </svelte:head>
 
 <p class="p opacity-50">Actions</p>
-<h1 class="h1 mt-4">{title}</h1>
+<h1 class="h1 mt-4" id={title}>{title}</h1>
 
 <slot />
 

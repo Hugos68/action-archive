@@ -41,12 +41,12 @@
 				'Emitted when the element intersects with the root.'
 			],
 			[
-				'aa_intersect_enter',
+				'aa_enter',
 				'(event: CustomEvent<{ entry: IntersectionObserverEntry }>) => void',
 				'Emitted when the element enters the root.'
 			],
 			[
-				'aa_intersect_leave',
+				'aa_leave',
 				'(event: CustomEvent<{ entry: IntersectionObserverEntry }>) => void',
 				'Emitted when the element leaves the root.'
 			]

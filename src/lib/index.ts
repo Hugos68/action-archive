@@ -1,6 +1,12 @@
 export { button } from './actions/button/index.js';
 export { click_outside } from './actions/click-outside/index.js';
 export { clipboard } from './actions/clipboard/index.js';
+export type { ClipboardParameters } from './actions/clipboard/types.js';
 export { focus_trap } from './actions/focus-trap/index.js';
-export { portal } from './actions/portal/index.js';
 export { intersect } from './actions/intersect/index.js';
+export type { IntersectParameters } from './actions/intersect/types.js';
+export { mask } from './actions/mask/index.js';
+export type { MaskParameters } from './actions/mask/types.js';
+export { portal } from './actions/portal/index.js';
+export type { PortalParameters } from './actions/portal/types.js';
+export { resize } from './actions/resize/index.js';
