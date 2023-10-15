@@ -23,7 +23,7 @@
 </script>
 
 <header
-	class="sticky top-0 py-4 backdrop-blur-sm bg-neutral-900/75 px-[clamp(1rem,10vw,25rem)] h-[var(--header-height)] flex justify-between items-center z-50"
+	class="sticky top-0 py-4 backdrop-blur-sm bg-zinc-800/75 px-[clamp(1rem,10vw,25rem)] h-[var(--header-height)] flex justify-between items-center z-50"
 >
 	<nav class="flex items-center gap-2">
 		<button class="lg:hidden" use:melt={$trigger}>
@@ -74,7 +74,7 @@
 		<div
 			transition:fly={{ x: -200 }}
 			use:melt={$content}
-			class="fixed left-0 top-0 z-50 h-screen bg-neutral-900
+			class="fixed left-0 top-0 z-50 h-screen bg-zinc-900
 			  shadow-lg px-[clamp(1rem,10vw,25rem)]"
 		>
 			<header class="h-[var(--header-height)] py-4 flex justify-end">

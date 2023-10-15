@@ -19,8 +19,7 @@
 <div class="mt-4" use:melt={$root}>
 	<div use:melt={$list} class="flex gap-2">
 		{#each ['npm', 'pnpm', 'yarn', 'bun'] as pm}
-			<button class="btn" class:!bg-neutral-500={$value !== pm} use:melt={$trigger(pm)}>{pm}</button
-			>
+			<button class="btn" class:!bg-zinc-500={$value !== pm} use:melt={$trigger(pm)}>{pm}</button>
 		{/each}
 	</div>
 	<div class="mt-4">
@@ -44,8 +43,8 @@
 </p>
 
 <div class="flex justify-between mt-36">
-	<a class="btn bg-neutral-500" href="/overview/introduction"
+	<a class="btn bg-zinc-500" href="/overview/introduction"
 		><ArrowLeftIcon class="inline" />Introduction</a
 	>
-	<a class="btn bg-neutral-500" href="/actions">Actions<ArrowRightIcon class="inline" /></a>
+	<a class="btn bg-zinc-500" href="/actions">Actions<ArrowRightIcon class="inline" /></a>
 </div>
