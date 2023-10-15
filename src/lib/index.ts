@@ -7,6 +7,8 @@ export { intersect } from './actions/intersect/index.js';
 export type { IntersectParameters } from './actions/intersect/types.js';
 export { mask } from './actions/mask/index.js';
 export type { MaskParameters } from './actions/mask/types.js';
+export { password_reveal } from './actions/password-reveal/index.js';
+export type { PasswordRevealParameters } from './actions/password-reveal/types.js';
 export { portal } from './actions/portal/index.js';
 export type { PortalParameters } from './actions/portal/types.js';
 export { resize } from './actions/resize/index.js';

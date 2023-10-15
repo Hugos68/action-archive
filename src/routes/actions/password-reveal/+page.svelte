@@ -3,34 +3,31 @@
 	import basicUsageCode from './basic-usage.txt?raw';
 	import DocTable from '$lib/docs/components/DocTable.svelte';
 	import Example from '$lib/docs/components/Example.svelte';
-	import PortalExample from './PortalExample.svelte';
-	import portalExampleRaw from './PortalExample.svelte?raw';
+	import PasswordRevealExample from './PasswordRevealExample.svelte';
+	import passwordRevealExampleRaw from './PasswordRevealExample.svelte?raw';
 
 	const parametersStructure = {
+		title: 'Parameters',
 		headings: ['Name', 'Type', 'Default', 'Description'],
 		body: [
-			[
-				'target',
-				'HTMLElement | string',
-				'document.body',
-				'Element which the target will be appended to, in case of a string it will be used as a query selector'
-			]
+			['target', 'HTMLInputElement | string', '-', 'Input that will be toggled.'],
+			['type', `'toggle' | 'hold'`, `'toggle'`, 'Type of reveal.']
 		]
 	};
 </script>
 
 <h2 class="h2 mt-12" id="description">Description</h2>
 <p class="p mt-4">
-	The Portal action can be used to move an element to another location in the DOM, this can be
-	useful for example when you want to render overlays on your body.
+	The Password Reveal Action allows you to toggle an input's input type between password and text
+	allowing the user to see the password they are typing.
 </p>
 
 <h2 class="h2 mt-12" id="usage">Usage</h2>
 <Codeblock class="mt-4" code={basicUsageCode} language="xml" />
 
 <h2 class="h2 mt-12" id="example">Example</h2>
-<Example code={portalExampleRaw} language="xml">
-	<PortalExample />
+<Example code={passwordRevealExampleRaw} language="xml">
+	<PasswordRevealExample />
 </Example>
 
 <h2 class="h2 mt-12" id="api">API</h2>

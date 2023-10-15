@@ -33,6 +33,9 @@ export const actions: Action[] = [
 		name: 'mask'
 	},
 	{
+		name: 'password-reveal'
+	},
+	{
 		name: 'portal'
 	},
 	{

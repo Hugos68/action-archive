@@ -1,6 +1,5 @@
 <script lang="ts">
 	type Structure = {
-		title: string;
 		headings: string[];
 		body: string[][];
 	};
@@ -8,13 +7,7 @@
 </script>
 
 <div {...$$restProps} class="{$$props.class} overflow-auto">
-	<h3
-		class="h3 sticky left-0 text-end bg-zinc-800 w-min p-4 rounded-t-md"
-		id={structure.title.toLowerCase().replace(' ', '-')}
-	>
-		{structure.title}
-	</h3>
-	<table class="min-w-full bg-zinc-800 rounded-b-md rounded-tr-md">
+	<table class="min-w-full bg-zinc-800 rounded-md">
 		<thead class="border-b-2 border-zinc-700">
 			<tr>
 				{#each structure.headings as heading}

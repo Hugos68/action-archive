@@ -1,0 +1,11 @@
+<script lang="ts">
+    import { password_reveal, type PasswordRevealParameters } from 'action-archive';
+
+    const passwordRevealParameters: PasswordRevealParameters = {
+        target: '#password',
+        type: 'toggle'
+    };
+</script>
+
+<input type="password" id="password" />
+<button use:password_reveal={passwordRevealParameters}>Reveal</button>

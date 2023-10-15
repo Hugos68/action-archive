@@ -7,13 +7,11 @@
 	import clipboardExampleRaw from './ClipboardExample.svelte?raw';
 
 	const parametersStructure = {
-		title: 'Parameters',
 		headings: ['Name', 'Type', 'Default', 'Description'],
 		body: [['value', 'string | Blob', '-', 'The text or blob to copy to the clipboard']]
 	};
 
 	const eventsStructure = {
-		title: 'Events',
 		headings: ['Name', 'Type', 'Description'],
 		body: [
 			[
@@ -37,5 +35,9 @@
 </Example>
 
 <h2 class="h2 mt-12" id="api">API</h2>
+
+<h3 class="h3 mt-12" id="parameters">Parameters</h3>
 <DocTable class="mt-4" structure={parametersStructure} />
+
+<h3 class="h3 mt-12" id="events">Events</h3>
 <DocTable class="mt-4" structure={eventsStructure} />

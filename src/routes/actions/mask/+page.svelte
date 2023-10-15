@@ -7,13 +7,11 @@
 	import maskExampleRaw from './MaskExample.svelte?raw';
 
 	const parametersStructure = {
-		title: 'Parameters',
 		headings: ['Name', 'Type', 'Default', 'Description'],
 		body: [['mask', 'string', '-', 'Mask that the input will adhere to.']]
 	};
 
 	const wildcardStructure = {
-		title: 'Wildcards',
 		headings: ['Wildcard', 'Description'],
 		body: [
 			['*', 'Any character [a-z0-9]'],
@@ -35,9 +33,13 @@
 
 <h2 class="h2 mt-12" id="usage">Usage</h2>
 <Codeblock class="mt-4" code={basicUsageCode} language="xml" />
-<p class="p mt-4">Masks can be specified through 3 types of wild cards:</p>
+
+<h3 class="h3 mt-12" id="wildcards">Wildcards</h3>
+<p class="p mt-4">
+	Masks can be specified through 3 types of wild cards, any other character will be treated as a
+	literal.
+</p>
 <DocTable class="mt-4" structure={wildcardStructure} />
-<p class="p mt-4">Any other character will be treated as a literal.</p>
 
 <h2 class="h2 mt-12" id="example">Example</h2>
 <Example code={maskExampleRaw} language="xml">
@@ -45,4 +47,6 @@
 </Example>
 
 <h2 class="h2 mt-12" id="api">API</h2>
+
+<h3 class="h3 mt-12" id="parameters">Parameters</h3>
 <DocTable class="mt-4" structure={parametersStructure} />

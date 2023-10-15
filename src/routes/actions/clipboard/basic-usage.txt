@@ -2,7 +2,7 @@
     import { clipboard, type ClipboardParameters } from 'action-archive';
 
     const clipboardParameters: ClipboardParameters = {
-        value: 'Copy Me!'
+        value: 'Text to copy'
     };
 </script>
 

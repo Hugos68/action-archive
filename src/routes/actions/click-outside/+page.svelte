@@ -7,7 +7,6 @@
 	import clickOutsideExampleRaw from './ClickOutsideExample.svelte?raw';
 
 	const parametersStructure = {
-		title: 'Events',
 		headings: ['Name', 'Type', 'Description'],
 		body: [
 			[
@@ -34,4 +33,6 @@
 </Example>
 
 <h2 class="h2 mt-12" id="api">API</h2>
+
+<h3 class="h3 mt-12" id="parameters">Parameters</h3>
 <DocTable class="mt-4" structure={parametersStructure} />
