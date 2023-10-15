@@ -1,5 +1,15 @@
 # action-archive
 
+## 0.1.0
+
+### Minor Changes
+
+- f44851f: All events now are prefixed with aa\_ to significantly reduce the chance of having custom event naming collissions with native or third party events
+
+### Patch Changes
+
+- 19cda10: Docs improvements
+
 ## 0.0.9
 
 ### Patch Changes
