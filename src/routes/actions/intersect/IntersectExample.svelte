@@ -13,8 +13,8 @@
 	<div class="h-screen ml-auto w-1/2 flex justify-center items-center">
 		<div
 			use:intersect={{ root }}
-			on:aa_intersect_enter={() => (intersecting = true)}
-			on:aa_intersect_leave={() => (intersecting = false)}
+			on:aa_enter={() => (intersecting = true)}
+			on:aa_leave={() => (intersecting = false)}
 			class="bg-zinc-50 h-16 lg:h-24 w-24 lg:w-36 rounded-md flex justify-center items-center"
 		/>
 	</div>

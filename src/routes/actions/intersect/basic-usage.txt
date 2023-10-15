@@ -11,6 +11,6 @@
 <div 
     use:intersect={intersectParameters} 
     on:aa_intersect={...} 
-    on:aa_intersect_enter={...} 
-    on:aa_intersect_leave={...} 
+    on:aa_enter={...} 
+    on:aa_leave={...} 
 />
