@@ -1,0 +1,9 @@
+<script lang="ts">
+    import { mask, type MaskParameters } from 'action-archive';
+
+    const maskParameters: MaskParameters = {
+        mask: '99/99/99'
+    };
+</script>
+
+<input use:mask={maskParameters} />

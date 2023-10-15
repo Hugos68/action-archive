@@ -30,6 +30,9 @@ export const actions: Action[] = [
 		name: 'intersect'
 	},
 	{
+		name: 'mask'
+	},
+	{
 		name: 'portal'
 	},
 	{
