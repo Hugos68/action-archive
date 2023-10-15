@@ -4,7 +4,7 @@
 	let buttonText = 'Copy';
 	let value: string;
 
-	function clipboardCopyHandler() {
+	function copyHandler() {
 		buttonText = 'Copied!';
 		setTimeout(() => {
 			buttonText = 'Copy';
@@ -15,7 +15,5 @@
 <div class="py-32 px-8 flex justify-center items-center gap-4">
 	<input class="input !max-w-xs" bind:value />
 
-	<button class="btn" use:clipboard={{ value }} on:aa_copy={clipboardCopyHandler}
-		>{buttonText}</button
-	>
+	<button class="btn" use:clipboard={{ value }} on:aa_copy={copyHandler}>{buttonText}</button>
 </div>
