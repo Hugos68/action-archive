@@ -1,7 +1,7 @@
 <script>
-	import Codeblock from '$lib/docs/components/Codeblock.svelte';
+	import Codeblock from '$docs/components/Codeblock.svelte';
 	import basicUsageCode from './basic-usage.txt?raw';
-	import Example from '../../../lib/docs/components/Example.svelte';
+	import Example from '$docs/components/Example.svelte';
 	import ButtonExample from './ButtonExample.svelte';
 	import buttonExampleRaw from './ButtonExample.svelte?raw';
 </script>

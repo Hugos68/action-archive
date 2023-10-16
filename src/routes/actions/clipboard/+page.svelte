@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Codeblock from '$lib/docs/components/Codeblock.svelte';
-	import DocTable from '$lib/docs/components/DocTable.svelte';
-	import Example from '$lib/docs/components/Example.svelte';
+	import Codeblock from '$docs/components/Codeblock.svelte';
+	import DocTable from '$docs/components/DocTable.svelte';
+	import Example from '$docs/components/Example.svelte';
 	import basicUsageCode from './basic-usage.txt?raw';
 	import ClipboardExample from './ClipboardExample.svelte';
 	import clipboardExampleRaw from './ClipboardExample.svelte?raw';

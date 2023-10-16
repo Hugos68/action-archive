@@ -7,7 +7,11 @@ import { vitePreprocess } from '@sveltejs/kit/vite';
 const config = {
 	preprocess: sequence([vitePreprocess(), preprocessMeltUI()]),
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		alias: {
+			$docs: './src/docs',
+			'action-archive': './src/lib'
+		}
 	}
 };
 

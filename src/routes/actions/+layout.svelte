@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { actions, type Action, prettifyRoute } from '$lib/docs/routes';
+	import { actions, type Action, prettifyRoute } from '$docs/routes';
 	import { ArrowLeftIcon, ArrowRightIcon } from 'svelte-feather-icons';
 
 	$: currentAction = actions.find(

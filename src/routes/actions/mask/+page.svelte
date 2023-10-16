@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Codeblock from '$lib/docs/components/Codeblock.svelte';
+	import Codeblock from '$docs/components/Codeblock.svelte';
 	import basicUsageCode from './basic-usage.txt?raw';
-	import DocTable from '$lib/docs/components/DocTable.svelte';
-	import Example from '$lib/docs/components/Example.svelte';
+	import DocTable from '$docs/components/DocTable.svelte';
+	import Example from '$docs/components/Example.svelte';
 	import MaskExample from './MaskExample.svelte';
 	import maskExampleRaw from './MaskExample.svelte?raw';
 

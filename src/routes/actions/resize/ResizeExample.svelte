@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { resize } from '$lib';
+	import { resize } from 'action-archive';
 
 	function resizeHandler(event: CustomEvent<{ entry: ResizeObserverEntry }>) {
 		const { contentRect } = event.detail.entry;
