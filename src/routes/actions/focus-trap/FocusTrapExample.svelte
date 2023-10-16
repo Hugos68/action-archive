@@ -7,7 +7,7 @@
 	<button class="btn">Item</button>
 	<span
 		class="py-4 border-y-2 border-zinc-500flex justify-center items-center gap-1"
-		use:focus_trap={{ initialFocus: false }}
+		use:focus_trap
 	>
 		<button class="btn">Item</button>
 		<button class="btn hidden md:inline">Item</button>

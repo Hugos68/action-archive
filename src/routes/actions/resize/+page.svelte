@@ -6,6 +6,18 @@
 	import ResizeExample from './ResizeExample.svelte';
 	import resizeExampleRaw from './ResizeExample.svelte?raw';
 
+	const parametersStructure = {
+		headings: ['Name', 'Type', 'Default', 'Description'],
+		body: [
+			[
+				'box',
+				`'border-box' | 'content-box' | 'device-pixel-content-box'`,
+				`'border-box'`,
+				'Indicates which type of box model the observer should observe.'
+			]
+		]
+	};
+
 	const eventsStructure = {
 		headings: ['Name', 'Type', 'Description'],
 		body: [
@@ -30,6 +42,9 @@
 </Example>
 
 <h2 class="h2 mt-12" id="api">API</h2>
+
+<h3 class="h3 mt-12" id="parameters">Parameters</h3>
+<DocTable class="mt-4" structure={parametersStructure} />
 
 <h3 class="h3 mt-12" id="events">Events</h3>
 <DocTable class="mt-4" structure={eventsStructure} />

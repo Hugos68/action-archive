@@ -18,16 +18,12 @@ export function clipboard(
 			navigator.clipboard.write([new ClipboardItem({ [value.type]: value })]);
 		emit(node, 'copy', { value });
 	}
-
 	function update({ value: newvalue }: ClipboardParameters) {
 		value = newvalue;
 	}
-
 	function destroy() {
 		node.removeEventListener('click', clickHandler);
 	}
-
 	node.addEventListener('click', clickHandler);
-
 	return { update, destroy };
 }

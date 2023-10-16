@@ -10,18 +10,14 @@ export function mask(node: HTMLInputElement, { mask }: MaskParameters) {
 		}
 		lastInputValue = node.value;
 	}
-
 	function update({ mask: newMask }: MaskParameters) {
 		mask = newMask;
 		node.value = cleanAndFormat(node.value, mask);
 	}
-
 	function destroy() {
 		node.removeEventListener('input', inputHandler);
 	}
-
 	node.addEventListener('input', inputHandler);
-
 	return { update, destroy };
 }
 
@@ -38,7 +34,6 @@ function cleanAndFormat(input: string, mask: string) {
 function format(input: string, mask: string) {
 	const clean = Array.from(input);
 	let output = '';
-
 	for (let i = 0; i < mask.length; i++) {
 		if (!['9', 'a', '*'].includes(mask[i])) {
 			output += mask[i];
@@ -62,7 +57,6 @@ function clean(input: string, mask: string) {
 	let inputToBeStripped = input;
 	let output = '';
 	let wildcardmask = '';
-
 	// Strip away non wildcard mask characters.
 	for (let i = 0; i < mask.length; i++) {
 		if (['9', 'a', '*'].includes(mask[i])) {
@@ -77,10 +71,8 @@ function clean(input: string, mask: string) {
 			}
 		}
 	}
-
 	for (let i = 0; i < wildcardmask.length; i++) {
 		let found = false;
-
 		for (let j = 0; j < inputToBeStripped.length; j++) {
 			const currentWildcardmask = wildcardmask[i] as '9' | 'a' | '*';
 			if (regexes[currentWildcardmask].test(inputToBeStripped[j])) {
@@ -91,9 +83,7 @@ function clean(input: string, mask: string) {
 				break;
 			}
 		}
-
 		if (!found) break;
 	}
-
 	return output;
 }

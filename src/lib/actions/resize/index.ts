@@ -1,20 +1,35 @@
 import type { ActionReturn } from '../../internal/svelte.js';
-import type { IntersectEvents } from './types.js';
+import type { IntersectEvents, ResizeParameters } from './types.js';
 import { emit } from '../../internal/emit.js';
 
-export function resize(node: HTMLElement): ActionReturn<undefined, IntersectEvents> {
-	const resizeObserver = new ResizeObserver(onResize);
-
+export function resize(
+	node: HTMLElement,
+	{ box = 'content-box' }: ResizeParameters = {}
+): ActionReturn<undefined, IntersectEvents> {
 	function onResize(entries: ResizeObserverEntry[]) {
-		const entry = entries[0];
-		emit(node, 'resize', { entry });
+		for (const entry of entries) {
+			emit(node, 'resize', { entry });
+		}
 	}
-
+	function init() {
+		resizeObserver = registerObserver(onResize);
+		resizeObserver.observe(node, { box });
+	}
+	function update({ box: newBox = 'content-box' }: ResizeParameters = {}) {
+		destroy();
+		box = newBox;
+		init();
+	}
 	function destroy() {
-		resizeObserver.disconnect();
+		resizeObserver.unobserve(node);
 	}
+	let resizeObserver: ResizeObserver;
+	init();
+	return { update, destroy };
+}
 
-	resizeObserver.observe(node);
-
-	return { destroy };
+let resizeObserver: ResizeObserver;
+function registerObserver(callback: ResizeObserverCallback) {
+	if (!resizeObserver) resizeObserver = new ResizeObserver(callback);
+	return resizeObserver;
 }
