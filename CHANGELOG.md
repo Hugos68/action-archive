@@ -1,5 +1,11 @@
 # action-archive
 
+## 0.3.2
+
+### Patch Changes
+
+- 968d795: Internal: moved from svelte-package to tsup
+
 ## 0.3.1
 
 ### Patch Changes
