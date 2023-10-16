@@ -1,5 +1,15 @@
 # action-archive
 
+## 0.4.0
+
+### Minor Changes
+
+- f1af1ae: Added optional props for resize action that will be passed into the observ method
+
+### Patch Changes
+
+- d84c1a1: Internal rewrite for intersect action, implemented suggestion from: #36
+
 ## 0.3.2
 
 ### Patch Changes
