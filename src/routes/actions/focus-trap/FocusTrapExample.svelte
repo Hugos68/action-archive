@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { focus_trap } from '$lib';
+	import { focus_trap } from '$lib/index.js';
 </script>
 
 <div class="py-32 px-4 flex justify-center items-center gap-1">

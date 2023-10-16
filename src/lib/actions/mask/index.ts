@@ -1,4 +1,4 @@
-import type { MaskParameters } from './types';
+import type { MaskParameters } from './types.js';
 
 export function mask(node: HTMLInputElement, { mask }: MaskParameters) {
 	let lastInputValue = node.value;

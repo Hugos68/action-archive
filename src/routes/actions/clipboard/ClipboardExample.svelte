@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { clipboard } from '$lib';
+	import { clipboard } from '$lib/index.js';
 
 	let buttonText = 'Copy';
 	let value: string;

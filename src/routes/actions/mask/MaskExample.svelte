@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { mask } from '$lib';
+	import { mask } from '$lib/index.js';
 
 	let value: string = '99/99/9999';
 </script>

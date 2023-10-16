@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { click_outside } from '$lib';
+	import { click_outside } from '$lib/index.js';
 	import { fade } from 'svelte/transition';
 
 	let clickedOutside = false;

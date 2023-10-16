@@ -6,6 +6,8 @@
 	import Navigation from '$lib/docs/components/Sidebar.svelte';
 	import { setContext } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
+	import { dev } from '$app/environment';
+	import { inject } from '@vercel/analytics';
 
 	const {
 		states: { headingsTree, activeHeadingIdxs }
@@ -20,6 +22,8 @@
 		states: { open }
 	} = drawer;
 	setContext('drawer', drawer);
+
+	inject({ mode: dev ? 'development' : 'production' });
 </script>
 
 <header

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { portal } from '$lib';
+	import { portal } from '$lib/index.js';
 
 	let target = '#container1';
 </script>

@@ -1,5 +1,5 @@
-import { getElementFromStringOrElement } from '../../internal/element';
-import type { PasswordRevealParameters } from './types';
+import { getElementFromStringOrElement } from '../../internal/element.js';
+import type { PasswordRevealParameters } from './types.js';
 
 export function password_reveal(
 	node: HTMLElement,

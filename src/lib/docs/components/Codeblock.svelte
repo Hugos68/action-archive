@@ -8,7 +8,7 @@
 	import typescript from 'highlight.js/lib/languages/typescript';
 	import plaintext from 'highlight.js/lib/languages/plaintext';
 	import shell from 'highlight.js/lib/languages/shell';
-	import { clipboard } from '$lib';
+	import { clipboard } from '$lib/index.js';
 	import { CheckIcon, CopyIcon } from 'svelte-feather-icons';
 	import { fly } from 'svelte/transition';
 
