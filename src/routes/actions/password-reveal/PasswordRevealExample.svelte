@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { password_reveal } from '$lib/index.js';
+	import { password_reveal } from 'action-archive';
 </script>
 
 <div class="py-32 px-8 flex justify-center items-center gap-4">

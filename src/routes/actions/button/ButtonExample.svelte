@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { button } from '$lib/index.js';
+	import { button } from 'action-archive';
 </script>
 
 <div class="py-32 flex justify-center items-center px-8">

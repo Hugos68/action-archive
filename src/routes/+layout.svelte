@@ -1,9 +1,9 @@
 <script lang="ts">
 	import '../app.css';
 	import { createDialog, createTableOfContents, melt } from '@melt-ui/svelte';
-	import TableOfContents from '../lib/docs/components/TableOfContents.svelte';
+	import TableOfContents from '$docs/components/TableOfContents.svelte';
 	import { GithubIcon, SidebarIcon, XIcon } from 'svelte-feather-icons';
-	import Navigation from '$lib/docs/components/Sidebar.svelte';
+	import Navigation from '$docs/components/Sidebar.svelte';
 	import { setContext } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 	import { dev } from '$app/environment';

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { intersect } from '$lib/index.js';
+	import { intersect } from 'action-archive';
 
 	let intersecting = false;
 	let root: HTMLElement;

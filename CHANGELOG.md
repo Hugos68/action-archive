@@ -1,5 +1,30 @@
 # action-archive
 
+## 0.3.1
+
+### Patch Changes
+
+- 0efd5c3: Fixed password reveal hold option not working properly on touch screen devices
+
+## 0.3.0
+
+### Minor Changes
+
+- 28a6de0: Added password reveal action
+
+## 0.2.1
+
+### Patch Changes
+
+- f163e8f: Hotfix: Fixed intersect action not emitting leave and enter events
+
+## 0.2.0
+
+### Minor Changes
+
+- d7781d4: Migrated svelte-maskify to action archive under the action name: "mask"
+- f251d1d: Added resize action
+
 ## 0.1.0
 
 ### Minor Changes

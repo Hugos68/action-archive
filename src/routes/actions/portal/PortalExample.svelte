@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { portal } from '$lib/index.js';
+	import { portal } from 'action-archive';
 
 	let target = '#container1';
 </script>

@@ -1,6 +1,6 @@
 {
 	"name": "action-archive",
-	"version": "0.1.0",
+	"version": "0.3.1",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
@@ -10,7 +10,7 @@
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
 		"preview": "vite preview",
-		"package": "svelte-kit sync && svelte-package && publint",
+		"package": "svelte-kit sync && tsup && publint",
 		"prepublishOnly": "npm run package",
 		"test": "vitest run",
 		"test:watch": "vitest",
@@ -28,8 +28,7 @@
 		}
 	},
 	"files": [
-		"dist",
-		"!dist/docs/**"
+		"dist"
 	],
 	"publishConfig": {
 		"access": "public"
@@ -41,7 +40,6 @@
 		"@melt-ui/svelte": "^0.53.0",
 		"@sveltejs/adapter-static": "^2.0.3",
 		"@sveltejs/kit": "^1.25.2",
-		"@sveltejs/package": "^2.2.2",
 		"@sveltejs/vite-plugin-svelte": "^2.4.6",
 		"@testing-library/svelte": "^4.0.4",
 		"@typescript-eslint/eslint-plugin": "^6.7.5",
@@ -63,11 +61,11 @@
 		"svelte-sequential-preprocessor": "^2.0.1",
 		"tailwindcss": "^3.3.3",
 		"tslib": "^2.6.2",
+		"tsup": "^7.2.0",
 		"typescript": "^5.2.2",
 		"vite": "^4.4.11",
 		"vitest": "^0.32.4"
 	},
-	"svelte": "./dist/index.js",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"type": "module",

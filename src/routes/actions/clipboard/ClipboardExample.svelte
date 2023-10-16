@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { clipboard } from '$lib/index.js';
+	import { clipboard } from 'action-archive';
 
 	let buttonText = 'Copy';
 	let value: string;
