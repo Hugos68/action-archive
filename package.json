@@ -6,6 +6,22 @@
 		"type": "git",
 		"url": "https://github.com/Hugos68/action-archive"
 	},
+	"packageManager": "pnpm@8.8.0",
+	"type": "module",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -20,18 +36,6 @@
 		"format": "prettier --plugin-search-dir . --write .",
 		"ci-cd": "pnpm format && pnpm lint && pnpm check && pnpm test && pnpm build",
 		"release": "pnpm run build && changeset publish"
-	},
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"default": "./dist/index.js"
-		}
-	},
-	"files": [
-		"dist"
-	],
-	"publishConfig": {
-		"access": "public"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.26.2",
@@ -65,9 +69,5 @@
 		"typescript": "^5.2.2",
 		"vite": "^4.4.11",
 		"vitest": "^0.32.4"
-	},
-	"main": "./dist/index.js",
-	"types": "./dist/index.d.ts",
-	"type": "module",
-	"packageManager": "pnpm@8.8.0"
+	}
 }
