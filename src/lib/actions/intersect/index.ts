@@ -12,32 +12,27 @@ export function intersect(
 			emit(entry.target as HTMLElement, entry.isIntersecting ? 'enter' : 'leave', { entry });
 		}
 	}
-
 	function init() {
 		intersectionObserver = registerObserver(onIntersect, { root, rootMargin, threshold });
 		intersectionObserver.observe(node);
 	}
-
 	function update({
 		root: newRoot = null,
 		rootMargin: newRootMargin = '0px 0px 0px 0px',
 		threshold: newThreshold = [0]
-	}: IntersectParameters) {
+	}: IntersectParameters = {}) {
 		destroy();
 		root = newRoot;
 		rootMargin = newRootMargin;
 		threshold = newThreshold;
 		init();
 	}
-
 	function destroy() {
 		intersectionObserver.unobserve(node);
 		unregisterObserver({ root, rootMargin, threshold });
 	}
-
 	let intersectionObserver: IntersectionObserver;
 	init();
-
 	return { update, destroy };
 }
 
@@ -53,7 +48,7 @@ const stringifiedParametersObserverMap = new Map<
 >();
 
 function registerObserver(
-	onIntersect: IntersectionObserverCallback,
+	callback: IntersectionObserverCallback,
 	{ root, rootMargin, threshold }: IntersectParameters
 ) {
 	const stringifiedParameters = JSON.stringify({ root, rootMargin, threshold });
@@ -62,7 +57,7 @@ function registerObserver(
 		(() => {
 			const newValue = {
 				users: 0,
-				intersectionObserver: new IntersectionObserver(onIntersect, { root, rootMargin, threshold })
+				intersectionObserver: new IntersectionObserver(callback, { root, rootMargin, threshold })
 			};
 			stringifiedParametersObserverMap.set(stringifiedParameters, newValue);
 			return newValue;
