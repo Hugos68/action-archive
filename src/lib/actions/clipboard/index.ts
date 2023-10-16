@@ -1,6 +1,6 @@
-import type { ActionReturn } from 'svelte/action';
-import type { ClipboardEvents, ClipboardParameters } from './types';
-import { emit } from '../../internal/emit';
+import type { ActionReturn } from '../../internal/svelte.js';
+import type { ClipboardEvents, ClipboardParameters } from './types.js';
+import { emit } from '../../internal/emit.js';
 
 export function clipboard(
 	node: HTMLElement,

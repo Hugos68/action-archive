@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { getContext } from 'svelte';
-	import { actions, overviews, prettifyRoute } from '../routes';
+	import { actions, overviews, prettifyRoute } from '../routes.js';
 	import { melt, type Dialog } from '@melt-ui/svelte';
 
 	export let fromSideBar: boolean = false;

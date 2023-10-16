@@ -1,6 +1,6 @@
-import type { ActionReturn } from 'svelte/action';
-import type { ClickOutsideEvents } from './types';
-import { emit } from '../../internal/emit';
+import type { ActionReturn } from '../../internal/svelte.js';
+import type { ClickOutsideEvents } from './types.js';
+import { emit } from '../../internal/emit.js';
 
 export function click_outside(node: HTMLElement): ActionReturn<undefined, ClickOutsideEvents> {
 	function clickHandler(event: MouseEvent) {
