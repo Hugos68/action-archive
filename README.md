@@ -1,7 +1,7 @@
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-![GitHub last commit](https://img.shields.io/github/last-commit/hugos68/action-archive)
-![npm](https://img.shields.io/npm/v/action-archive)
-![npm](https://img.shields.io/npm/dt/action-archive)
+![version](https://img.shields.io/npm/v/action-archive?style=for-the-badge)
+![minified + zipped](https://img.shields.io/bundlephobia/minzip/action-archive?style=for-the-badge)
+![npm](https://img.shields.io/npm/dt/action-archive?style=for-the-badge)
+![npm](https://img.shields.io/npm/l/action-archive?style=for-the-badge)
 
 # Action Archive
 
