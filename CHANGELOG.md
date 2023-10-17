@@ -1,5 +1,12 @@
 # action-archive
 
+## 0.5.0
+
+### Minor Changes
+
+- 7c08f8a: Add optional container parameter to the click outside action to allow more fine grained control over the click outside area
+- 7c08f8a: Removed the button action because it can be replaced by: on:click|preventDefault
+
 ## 0.4.0
 
 ### Minor Changes
