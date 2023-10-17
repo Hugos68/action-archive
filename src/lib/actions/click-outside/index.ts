@@ -9,9 +9,16 @@ export function click_outside(node: HTMLElement): ActionReturn<undefined, ClickO
 		}
 		emit(node, 'click_outside');
 	}
+
+	function init() {
+		document.addEventListener('click', clickHandler);
+	}
+
 	function destroy() {
 		document.removeEventListener('click', clickHandler);
 	}
-	document.addEventListener('click', clickHandler);
+
+	init();
+
 	return { destroy };
 }

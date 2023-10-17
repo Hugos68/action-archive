@@ -4,32 +4,32 @@ import { emit } from '../../internal/emit.js';
 
 export function resize(
 	node: HTMLElement,
-	{ box = 'content-box' }: ResizeParameters = {}
-): ActionReturn<undefined, IntersectEvents> {
+	params: ResizeParameters = {}
+): ActionReturn<ResizeParameters, IntersectEvents> {
+	const observer = new ResizeObserver(onResize);
+
 	function onResize(entries: ResizeObserverEntry[]) {
 		for (const entry of entries) {
 			emit(node, 'resize', { entry });
 		}
 	}
-	function init() {
-		resizeObserver = registerObserver(onResize);
-		resizeObserver.observe(node, { box });
-	}
-	function update({ box: newBox = 'content-box' }: ResizeParameters = {}) {
-		destroy();
-		box = newBox;
-		init();
-	}
-	function destroy() {
-		resizeObserver.unobserve(node);
-	}
-	let resizeObserver: ResizeObserver;
-	init();
-	return { update, destroy };
-}
 
-let resizeObserver: ResizeObserver;
-function registerObserver(callback: ResizeObserverCallback) {
-	if (!resizeObserver) resizeObserver = new ResizeObserver(callback);
-	return resizeObserver;
+	function setDefaults(params: ResizeParameters) {
+		if (!params.box) params.box = 'content-box';
+	}
+
+	function update(newParams: ResizeParameters = {}) {
+		destroy();
+		setDefaults(newParams);
+		params = newParams;
+		observer.observe(node, params);
+	}
+
+	function destroy() {
+		observer.unobserve(node);
+	}
+
+	update(params);
+
+	return { update, destroy };
 }

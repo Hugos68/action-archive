@@ -15,10 +15,7 @@ const focusableElementSelector = [
 	'[tabindex]:not([tabindex="-1"])'
 ].join(', ');
 
-export function focus_trap(
-	node: HTMLElement,
-	{ initialFocus = true, disabled = false }: FocusTrapParameters = {}
-) {
+export function focus_trap(node: HTMLElement, params: FocusTrapParameters = {}) {
 	function determineFocusableElements(): FocusableChildren {
 		const focusableElements: HTMLElement[] = (
 			Array.from(node.querySelectorAll(focusableElementSelector)) as HTMLElement[]
@@ -29,11 +26,12 @@ export function focus_trap(
 			last: focusableElements[focusableElements.length - 1]
 		};
 	}
+
 	function keydownHandler(event: KeyboardEvent): void {
 		const { first, last } = determineFocusableElements();
 		const isTabKey = event.key === 'Tab';
 
-		if (disabled || !isTabKey) return;
+		if (params.disabled || !isTabKey) return;
 
 		if (event.shiftKey && document.activeElement === first) {
 			event.preventDefault();
@@ -44,20 +42,31 @@ export function focus_trap(
 			first.focus();
 		}
 	}
-	if (initialFocus) {
-		const { first } = determineFocusableElements();
-		first?.focus();
+
+	function setDefaults(params: FocusTrapParameters) {
+		if (params.disabled === undefined) params.disabled = false;
+		if (params.initialFocus === undefined) params.initialFocus = true;
 	}
-	function update({
-		initialFocus: newInitialFocus = true,
-		disabled: newDisabled = false
-	}: FocusTrapParameters) {
-		initialFocus = newInitialFocus;
-		disabled = newDisabled;
+
+	function init() {
+		node.addEventListener('keydown', keydownHandler);
 	}
+
+	function update(newParams: FocusTrapParameters) {
+		setDefaults(newParams);
+		params = newParams;
+		if (params.initialFocus) {
+			const { first } = determineFocusableElements();
+			first?.focus();
+		}
+	}
+
 	function destroy() {
 		node.removeEventListener('keydown', keydownHandler);
 	}
-	node.addEventListener('keydown', keydownHandler);
+
+	init();
+	update(params);
+
 	return { update, destroy };
 }
