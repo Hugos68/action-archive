@@ -19,11 +19,13 @@ export function clipboard(
 		emit(node, 'copy', { value: params.value });
 	}
 
-	function init() {
-		node.addEventListener('click', clickHandler);
-	}
+	function update(newParams: ClipboardParameters, init = false) {
+		// Initialize
+		if (init) {
+			node.addEventListener('click', clickHandler);
+		}
 
-	function update(newParams: ClipboardParameters) {
+		// Update state
 		params = newParams;
 	}
 
@@ -31,8 +33,7 @@ export function clipboard(
 		node.removeEventListener('click', clickHandler);
 	}
 
-	init();
-	update(params);
+	update(params, true);
 
 	return { update, destroy };
 }

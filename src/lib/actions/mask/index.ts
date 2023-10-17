@@ -1,9 +1,10 @@
 import type { MaskParameters } from './types.js';
 
 export function mask(node: HTMLInputElement, params: MaskParameters) {
-	let lastInputValue = node.value;
+	let lastInputValue: string | null = null;
 
 	function inputHandler() {
+		if (!lastInputValue) return;
 		const pressedBackspace = lastInputValue.length - node.value.length === 1;
 		if (!pressedBackspace) {
 			const input = node.value;
@@ -12,11 +13,14 @@ export function mask(node: HTMLInputElement, params: MaskParameters) {
 		lastInputValue = node.value;
 	}
 
-	function init() {
-		node.addEventListener('input', inputHandler);
-	}
+	function update(newParams: MaskParameters, init = false) {
+		// Initalize
+		if (init) {
+			node.addEventListener('input', inputHandler);
+			lastInputValue = node.value;
+		}
 
-	function update(newParams: MaskParameters) {
+		// Update state
 		params = newParams;
 		node.value = cleanAndFormat(node.value, params.mask);
 	}
@@ -25,8 +29,7 @@ export function mask(node: HTMLInputElement, params: MaskParameters) {
 		node.removeEventListener('input', inputHandler);
 	}
 
-	init();
-	update(params);
+	update(params, true);
 
 	return { update, destroy };
 }

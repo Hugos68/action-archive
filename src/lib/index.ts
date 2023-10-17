@@ -1,4 +1,3 @@
-export * from './actions/button';
 export * from './actions/click-outside';
 export * from './actions/clipboard';
 export * from './actions/focus-trap';

@@ -21,18 +21,18 @@ export function password_reveal(node: HTMLElement, params: PasswordRevealParamet
 		inputEl.type = 'password';
 	}
 
-	function setDefaults(params: PasswordRevealParameters) {
+	function update(newParams: PasswordRevealParameters, init = true) {
+		// Initialize
+		if (init) {
+			node.addEventListener('click', clickHandler);
+			node.addEventListener('mousedown', poinerdownHandler);
+			node.addEventListener('pointerup', pointerupHandler);
+		}
+
+		// Set defaults
 		if (!params.type) params.type = 'toggle';
-	}
 
-	function init() {
-		node.addEventListener('click', clickHandler);
-		node.addEventListener('mousedown', poinerdownHandler);
-		node.addEventListener('pointerup', pointerupHandler);
-	}
-
-	function update(newParams: PasswordRevealParameters) {
-		setDefaults(newParams);
+		// Update state
 		params = newParams;
 	}
 
@@ -42,8 +42,7 @@ export function password_reveal(node: HTMLElement, params: PasswordRevealParamet
 		node.removeEventListener('pointerup', pointerupHandler);
 	}
 
-	setDefaults(params);
-	init();
+	update(params, true);
 
 	return { update, destroy };
 }

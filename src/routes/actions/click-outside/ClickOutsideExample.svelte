@@ -12,10 +12,10 @@
 	}
 </script>
 
-<div class="py-32 px-8 flex justify-center items-center">
+<div class="py-32 px-8 flex justify-center items-center" id="container">
 	<div
 		class="bg-zinc-50 h-24 w-36 flex justify-center items-center rounded-md"
-		use:click_outside
+		use:click_outside={{ container: '#container' }}
 		on:aa_click_outside={clickOutsideHandler}
 	>
 		{#if clickedOutside}

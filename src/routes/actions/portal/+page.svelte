@@ -13,7 +13,7 @@
 				'target',
 				'HTMLElement | string',
 				'document.body',
-				'Element which the target will be appended to, in case of a string it will be used as a query selector'
+				'Element or query selected element the element will be appended to.'
 			]
 		]
 	};

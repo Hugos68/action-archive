@@ -6,7 +6,7 @@ export function resize(
 	node: HTMLElement,
 	params: ResizeParameters = {}
 ): ActionReturn<ResizeParameters, IntersectEvents> {
-	const observer = new ResizeObserver(onResize);
+	let observer: ResizeObserver | null = null;
 
 	function onResize(entries: ResizeObserverEntry[]) {
 		for (const entry of entries) {
@@ -14,22 +14,26 @@ export function resize(
 		}
 	}
 
-	function setDefaults(params: ResizeParameters) {
-		if (!params.box) params.box = 'content-box';
-	}
+	function update(newParams: ResizeParameters = {}, init = false) {
+		// Initalize
+		if (init) observer = new ResizeObserver(onResize);
 
-	function update(newParams: ResizeParameters = {}) {
-		destroy();
-		setDefaults(newParams);
+		// Remove old state
+		observer?.unobserve(node);
+
+		// Set defaults
+		if (!params.box) params.box = 'content-box';
+
+		// Update state
 		params = newParams;
-		observer.observe(node, params);
+		observer?.observe(node, params);
 	}
 
 	function destroy() {
-		observer.unobserve(node);
+		observer?.unobserve(node);
 	}
 
-	update(params);
+	update(params, true);
 
 	return { update, destroy };
 }

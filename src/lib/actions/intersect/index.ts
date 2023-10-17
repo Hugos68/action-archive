@@ -6,8 +6,7 @@ export function intersect(
 	node: HTMLElement,
 	params: IntersectParameters
 ): ActionReturn<IntersectParameters, IntersectEvents> {
-	let observer = new IntersectionObserver(intersectHandler, params);
-
+	let observer: IntersectionObserver | null = null;
 	function intersectHandler(entries: IntersectionObserverEntry[]) {
 		for (const entry of entries) {
 			emit(node, 'intersect', { entry });
@@ -17,14 +16,17 @@ export function intersect(
 	}
 
 	function update(newParams: IntersectParameters) {
+		// Remove old state
+		observer?.disconnect();
+
+		// Update state
 		params = newParams;
-		observer.disconnect();
 		observer = new IntersectionObserver(intersectHandler, params);
 		observer.observe(node);
 	}
 
 	function destroy() {
-		observer.disconnect();
+		observer?.disconnect();
 	}
 
 	update(params);

@@ -43,17 +43,17 @@ export function focus_trap(node: HTMLElement, params: FocusTrapParameters = {}) 
 		}
 	}
 
-	function setDefaults(params: FocusTrapParameters) {
+	function update(newParams: FocusTrapParameters, init = false) {
+		// Initialize
+		if (init) {
+			node.addEventListener('keydown', keydownHandler);
+		}
+
+		// Set defaults
 		if (params.disabled === undefined) params.disabled = false;
 		if (params.initialFocus === undefined) params.initialFocus = true;
-	}
 
-	function init() {
-		node.addEventListener('keydown', keydownHandler);
-	}
-
-	function update(newParams: FocusTrapParameters) {
-		setDefaults(newParams);
+		// Update state
 		params = newParams;
 		if (params.initialFocus) {
 			const { first } = determineFocusableElements();
@@ -65,8 +65,7 @@ export function focus_trap(node: HTMLElement, params: FocusTrapParameters = {}) 
 		node.removeEventListener('keydown', keydownHandler);
 	}
 
-	init();
-	update(params);
+	update(params, true);
 
 	return { update, destroy };
 }
