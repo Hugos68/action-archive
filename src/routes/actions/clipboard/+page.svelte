@@ -8,7 +8,7 @@
 
 	const parametersStructure = {
 		headings: ['Name', 'Type', 'Default', 'Description'],
-		body: [['value', 'string | Blob', '-', 'The text or blob to copy to the clipboard']]
+		body: [['value', 'string | Blob', '-', 'The text or blob to copy to the clipboard.']]
 	};
 
 	const eventsStructure = {
@@ -17,7 +17,7 @@
 			[
 				'aa_copy',
 				'(event: CustomEvent<{ value: string | Blob }) => void',
-				'Emitted when the the value is copied to the clipboard'
+				'Emitted when the the value is copied to the clipboard.'
 			]
 		]
 	};

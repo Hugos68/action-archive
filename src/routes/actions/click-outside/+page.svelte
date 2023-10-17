@@ -7,12 +7,24 @@
 	import clickOutsideExampleRaw from './ClickOutsideExample.svelte?raw';
 
 	const parametersStructure = {
+		headings: ['Name', 'Type', 'Default', 'Description'],
+		body: [
+			[
+				'container',
+				'HTMLElement | string',
+				'document.bodyElement',
+				'Element or query selected element which will act as the container, clicking outside of the container will not trigger an aa_click_outside event.'
+			]
+		]
+	};
+
+	const eventsStructure = {
 		headings: ['Name', 'Type', 'Description'],
 		body: [
 			[
 				'aa_click_outside',
 				'(event: MouseEvent) => void',
-				'Callback that will be called when clicking outside of the element'
+				'Emitted when clicking outside of the node and inside of the container.'
 			]
 		]
 	};
@@ -36,3 +48,6 @@
 
 <h3 class="h3 mt-12" id="parameters">Parameters</h3>
 <DocTable class="mt-4" structure={parametersStructure} />
+
+<h3 class="h3 mt-12" id="events">Events</h3>
+<DocTable class="mt-4" structure={eventsStructure} />

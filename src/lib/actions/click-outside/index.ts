@@ -1,17 +1,38 @@
 import type { ActionReturn } from '../../internal/svelte.js';
-import type { ClickOutsideEvents } from './types.js';
+import type { ClickOutsideEvents, ClickOutsideParams } from './types.js';
 import { emit } from '../../internal/emit.js';
+import { getElementFromStringOrElement } from '../../internal/element.js';
 
-export function click_outside(node: HTMLElement): ActionReturn<undefined, ClickOutsideEvents> {
+export function click_outside(
+	node: HTMLElement,
+	params: ClickOutsideParams = {}
+): ActionReturn<ClickOutsideParams, ClickOutsideEvents> {
 	function clickHandler(event: MouseEvent) {
-		if (node.contains(event.target as Node)) {
-			return;
+		if (params.container) {
+			const container = getElementFromStringOrElement(params.container);
+			if (!container) return;
+			if (!container.contains(event.target as Node)) return;
 		}
+		if (node.contains(event.target as Node)) return;
 		emit(node, 'click_outside');
 	}
+
+	function update(newParams: ClickOutsideParams = {}, init = false) {
+		// Initialize
+		if (init) document.addEventListener('click', clickHandler);
+
+		// Set default values
+		if (!newParams.container) newParams.container = document.documentElement;
+
+		// Update state
+		params = newParams;
+	}
+
 	function destroy() {
 		document.removeEventListener('click', clickHandler);
 	}
-	document.addEventListener('click', clickHandler);
-	return { destroy };
+
+	update(params, true);
+
+	return { update, destroy };
 }

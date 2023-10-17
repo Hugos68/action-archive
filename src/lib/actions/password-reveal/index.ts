@@ -1,39 +1,48 @@
 import { getElementFromStringOrElement } from '../../internal/element.js';
 import type { PasswordRevealParameters } from './types.js';
 
-export function password_reveal(
-	node: HTMLElement,
-	{ target, type = 'toggle' }: PasswordRevealParameters
-) {
+export function password_reveal(node: HTMLElement, params: PasswordRevealParameters) {
 	function clickHandler() {
-		if (type !== 'toggle') return;
-		const inputEl = getElementFromStringOrElement(target);
+		if (params.type !== 'toggle') return;
+		const inputEl = getElementFromStringOrElement(params.target);
 		if (!inputEl) return;
 		inputEl.type = inputEl.type === 'text' ? 'password' : 'text';
 	}
 	function poinerdownHandler() {
-		if (type !== 'hold') return;
-		const inputEl = getElementFromStringOrElement(target);
+		if (params.type !== 'hold') return;
+		const inputEl = getElementFromStringOrElement(params.target);
 		if (!inputEl) return;
 		inputEl.type = 'text';
 	}
 	function pointerupHandler() {
-		if (type !== 'hold') return;
-		const inputEl = getElementFromStringOrElement(target);
+		if (params.type !== 'hold') return;
+		const inputEl = getElementFromStringOrElement(params.target);
 		if (!inputEl) return;
 		inputEl.type = 'password';
 	}
-	function update({ target: newTarget, type: newType = 'toggle' }: PasswordRevealParameters) {
-		target = newTarget;
-		type = newType;
+
+	function update(newParams: PasswordRevealParameters, init = true) {
+		// Initialize
+		if (init) {
+			node.addEventListener('click', clickHandler);
+			node.addEventListener('mousedown', poinerdownHandler);
+			node.addEventListener('pointerup', pointerupHandler);
+		}
+
+		// Set defaults
+		if (!params.type) params.type = 'toggle';
+
+		// Update state
+		params = newParams;
 	}
+
 	function destroy() {
 		node.removeEventListener('click', clickHandler);
 		node.removeEventListener('pointerdown', poinerdownHandler);
 		node.removeEventListener('pointerup', pointerupHandler);
 	}
-	node.addEventListener('click', clickHandler);
-	node.addEventListener('mousedown', poinerdownHandler);
-	node.addEventListener('pointerup', pointerupHandler);
+
+	update(params, true);
+
 	return { update, destroy };
 }

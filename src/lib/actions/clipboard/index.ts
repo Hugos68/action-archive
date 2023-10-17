@@ -4,7 +4,7 @@ import { emit } from '../../internal/emit.js';
 
 export function clipboard(
 	node: HTMLElement,
-	{ value }: ClipboardParameters
+	params: ClipboardParameters
 ): ActionReturn<ClipboardParameters, ClipboardEvents> {
 	function clickHandler() {
 		if (!navigator.clipboard) {
@@ -13,17 +13,27 @@ export function clipboard(
 			);
 			return;
 		}
-		if (typeof value === 'string') navigator.clipboard.writeText(value);
-		if (value instanceof Blob)
-			navigator.clipboard.write([new ClipboardItem({ [value.type]: value })]);
-		emit(node, 'copy', { value });
+		if (typeof params.value === 'string') navigator.clipboard.writeText(params.value);
+		if (params.value instanceof Blob)
+			navigator.clipboard.write([new ClipboardItem({ [params.value.type]: params.value })]);
+		emit(node, 'copy', { value: params.value });
 	}
-	function update({ value: newvalue }: ClipboardParameters) {
-		value = newvalue;
+
+	function update(newParams: ClipboardParameters, init = false) {
+		// Initialize
+		if (init) {
+			node.addEventListener('click', clickHandler);
+		}
+
+		// Update state
+		params = newParams;
 	}
+
 	function destroy() {
 		node.removeEventListener('click', clickHandler);
 	}
-	node.addEventListener('click', clickHandler);
+
+	update(params, true);
+
 	return { update, destroy };
 }

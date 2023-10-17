@@ -15,9 +15,6 @@ export const overviews: Overview[] = [
 export type Action = Route;
 export const actions: Action[] = [
 	{
-		name: 'button'
-	},
-	{
 		name: 'click-outside'
 	},
 	{
