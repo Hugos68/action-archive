@@ -15,6 +15,7 @@
 	<li>- Consistent API</li>
 	<li>- Full Typesafety</li>
 	<li>- Fully Treeshakable</li>
+	<li>- Incredibly Lightweight (1.6kb minified + gzipped)</li>
 </ul>
 
 <h2 class="h2 mt-12" id="motiviation">Motivation</h2>
