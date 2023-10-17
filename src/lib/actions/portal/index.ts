@@ -4,7 +4,7 @@ import type { PortalParameters } from './types.js';
 export function portal(node: HTMLElement, params: PortalParameters) {
 	function update(newParams: PortalParameters) {
 		// Set defaults
-		if (!params.target) params.target = document.body;
+		if (!newParams.target) newParams.target = document.body;
 
 		// Update state
 		params = newParams;

@@ -1,8 +1,4 @@
-export type IntersectParameters = {
-	root?: Element | Document | null;
-	rootMargin?: string;
-	threshold?: number | number[];
-};
+export type IntersectParameters = IntersectionObserverInit;
 
 export type IntersectEvents = {
 	'on:aa_intersect'?: (event: CustomEvent<{ entry: IntersectionObserverEntry }>) => void;

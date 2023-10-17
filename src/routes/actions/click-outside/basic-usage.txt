@@ -1,5 +1,9 @@
 <script lang="ts">
-    import { click_outside } from 'action-archive';
+    import { click_outside, type ClickOutsideParameters } from 'action-archive';
+
+    const clickOutsideParameters: ClickOutsideParameters = {
+        container: document.documentElement
+    }
 </script>
 
-<div use:click_outside on:aa_click_outside={...} />
+<div use:click_outside={outsideClickParameters} on:aa_click_outside={...} />

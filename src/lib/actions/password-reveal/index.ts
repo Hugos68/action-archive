@@ -30,7 +30,7 @@ export function password_reveal(node: HTMLElement, params: PasswordRevealParamet
 		}
 
 		// Set defaults
-		if (!params.type) params.type = 'toggle';
+		if (!newParams.type) newParams.type = 'toggle';
 
 		// Update state
 		params = newParams;

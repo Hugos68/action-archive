@@ -1,4 +1,4 @@
-export type ClickOutsideParams = {
+export type ClickOutsideParamaters = {
 	container?: HTMLElement | string;
 };
 

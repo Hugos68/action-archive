@@ -21,9 +21,7 @@ export function clipboard(
 
 	function update(newParams: ClipboardParameters, init = false) {
 		// Initialize
-		if (init) {
-			node.addEventListener('click', clickHandler);
-		}
+		if (init) node.addEventListener('click', clickHandler);
 
 		// Update state
 		params = newParams;

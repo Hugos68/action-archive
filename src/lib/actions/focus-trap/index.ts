@@ -50,8 +50,8 @@ export function focus_trap(node: HTMLElement, params: FocusTrapParameters = {}) 
 		}
 
 		// Set defaults
-		if (params.disabled === undefined) params.disabled = false;
-		if (params.initialFocus === undefined) params.initialFocus = true;
+		if (newParams.disabled === undefined) newParams.disabled = false;
+		if (newParams.initialFocus === undefined) newParams.initialFocus = true;
 
 		// Update state
 		params = newParams;

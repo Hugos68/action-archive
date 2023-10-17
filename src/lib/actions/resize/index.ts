@@ -21,9 +21,6 @@ export function resize(
 		// Remove old state
 		observer?.unobserve(node);
 
-		// Set defaults
-		if (!params.box) params.box = 'content-box';
-
 		// Update state
 		params = newParams;
 		observer?.observe(node, params);
