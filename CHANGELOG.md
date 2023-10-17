@@ -1,5 +1,11 @@
 # action-archive
 
+## 0.5.1
+
+### Patch Changes
+
+- 1d4c8dc: Hotfixed some internal errors from refacter
+
 ## 0.5.0
 
 ### Minor Changes
