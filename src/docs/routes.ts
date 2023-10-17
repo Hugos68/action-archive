@@ -27,6 +27,9 @@ export const actions: Action[] = [
 		name: 'intersect'
 	},
 	{
+		name: 'long-press'
+	},
+	{
 		name: 'mask'
 	},
 	{

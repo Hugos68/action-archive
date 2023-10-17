@@ -8,6 +8,7 @@ export function intersect(
 ): ActionReturn<IntersectParameters, IntersectEvents> {
 	let observer: IntersectionObserver | null = null;
 	function intersectHandler(entries: IntersectionObserverEntry[]) {
+		if (params.disabled) return;
 		for (const entry of entries) {
 			emit(node, 'intersect', { entry });
 			if (entry.isIntersecting) emit(node, 'enter', { entry });

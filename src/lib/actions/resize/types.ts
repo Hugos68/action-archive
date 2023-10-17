@@ -1,7 +1,7 @@
-export type ResizeParameters = {
-	box?: 'border-box' | 'content-box' | 'device-pixel-content-box';
-};
+import type { Disablable } from '../../internal/types';
 
-export type IntersectEvents = {
+export interface ResizeParameters extends ResizeObserverOptions, Disablable {}
+
+export type ResizeEvents = {
 	'on:aa_resize'?: (event: CustomEvent<{ entry: ResizeObserverEntry }>) => void;
 };

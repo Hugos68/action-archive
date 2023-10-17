@@ -8,6 +8,8 @@ export function portal(node: HTMLElement, params: PortalParameters) {
 
 		// Update state
 		params = newParams;
+
+		if (params.disabled) return;
 		const element = getElementFromStringOrElement(params.target);
 		if (!element) return;
 		element.appendChild(node);

@@ -7,6 +7,7 @@ export function clipboard(
 	params: ClipboardParameters
 ): ActionReturn<ClipboardParameters, ClipboardEvents> {
 	function clickHandler() {
+		if (params.disabled) return;
 		if (!navigator.clipboard) {
 			console.warn(
 				'Clipboard API not supported, see: https://developer.mozilla.org/en-US/docs/Web/API/Clipboard'

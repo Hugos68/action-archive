@@ -8,6 +8,7 @@ export function click_outside(
 	params: ClickOutsideParamaters = {}
 ): ActionReturn<ClickOutsideParamaters, ClickOutsideEvents> {
 	function clickHandler(event: MouseEvent) {
+		if (params.disabled) return;
 		if (params.container) {
 			const container = getElementFromStringOrElement(params.container);
 			if (!container) return;

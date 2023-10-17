@@ -4,6 +4,7 @@ export function mask(node: HTMLInputElement, params: MaskParameters) {
 	let lastInputValue: string | null = null;
 
 	function inputHandler() {
+		if (params.disabled) return;
 		if (lastInputValue === null) return;
 		const pressedBackspace = lastInputValue.length - node.value.length === 1;
 		if (!pressedBackspace) {

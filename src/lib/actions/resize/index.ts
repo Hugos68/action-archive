@@ -1,14 +1,15 @@
 import type { ActionReturn } from '../../internal/svelte.js';
-import type { IntersectEvents, ResizeParameters } from './types.js';
+import type { ResizeParameters, ResizeEvents  } from './types.js';
 import { emit } from '../../internal/emit.js';
 
 export function resize(
 	node: HTMLElement,
 	params: ResizeParameters = {}
-): ActionReturn<ResizeParameters, IntersectEvents> {
+): ActionReturn<ResizeParameters, ResizeEvents> {
 	let observer: ResizeObserver | null = null;
 
 	function onResize(entries: ResizeObserverEntry[]) {
+		if (params.disabled) return;
 		for (const entry of entries) {
 			emit(node, 'resize', { entry });
 		}

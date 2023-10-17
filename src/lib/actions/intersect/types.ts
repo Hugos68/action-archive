@@ -1,4 +1,6 @@
-export type IntersectParameters = IntersectionObserverInit;
+import type { Disablable } from '../../internal/types';
+
+export interface IntersectParameters extends IntersectionObserverInit, Disablable {}
 
 export type IntersectEvents = {
 	'on:aa_intersect'?: (event: CustomEvent<{ entry: IntersectionObserverEntry }>) => void;
