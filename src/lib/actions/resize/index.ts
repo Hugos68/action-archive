@@ -1,5 +1,5 @@
 import type { ActionReturn } from '../../internal/svelte.js';
-import type { ResizeParameters, ResizeEvents  } from './types.js';
+import type { ResizeParameters, ResizeEvents } from './types.js';
 import { emit } from '../../internal/emit.js';
 
 export function resize(
