@@ -14,7 +14,8 @@
 				'number',
 				'500',
 				'Number of milliseconds that the element needs to be pressed for before the aa_long_press event is emitted.'
-			]
+			],
+			['disabled', 'boolean', 'false', 'Disables the action.']
 		]
 	};
 

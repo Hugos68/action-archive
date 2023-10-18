@@ -26,7 +26,8 @@
 				'number | number[]',
 				'[0]',
 				'Threshold(s) that define when the intersect event should be emitted.'
-			]
+			],
+			['disabled', 'boolean', 'false', 'Disables the action.']
 		]
 	};
 

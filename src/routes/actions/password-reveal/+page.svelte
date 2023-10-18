@@ -11,7 +11,8 @@
 		headings: ['Name', 'Type', 'Default', 'Description'],
 		body: [
 			['target', 'HTMLInputElement | string', '-', 'Input that will be toggled.'],
-			['type', `'toggle' | 'hold'`, `'toggle'`, 'Type of reveal.']
+			['type', `'toggle' | 'hold'`, `'toggle'`, 'Type of reveal.'],
+			['disabled', 'boolean', 'false', 'Disables the action.']
 		]
 	};
 </script>

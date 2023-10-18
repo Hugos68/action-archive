@@ -14,7 +14,8 @@
 				'HTMLElement | string',
 				'document.body',
 				'Element or query selected element the element will be appended to.'
-			]
+			],
+			['disabled', 'boolean', 'false', 'Disables the action.']
 		]
 	};
 </script>

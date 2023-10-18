@@ -14,7 +14,8 @@
 				'HTMLElement | string',
 				'document.bodyElement',
 				'Element or query selected element which will act as the container, clicking outside of the container will not trigger an aa_click_outside event.'
-			]
+			],
+			['disabled', 'boolean', 'false', 'Disables the action.']
 		]
 	};
 

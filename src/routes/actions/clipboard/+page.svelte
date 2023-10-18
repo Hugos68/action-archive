@@ -8,7 +8,10 @@
 
 	const parametersStructure = {
 		headings: ['Name', 'Type', 'Default', 'Description'],
-		body: [['value', 'string | Blob', '-', 'The text or blob to copy to the clipboard.']]
+		body: [
+			['value', 'string | Blob', '-', 'The text or blob to copy to the clipboard.'],
+			['disabled', 'boolean', 'false', 'Disables the action.']
+		]
 	};
 
 	const eventsStructure = {

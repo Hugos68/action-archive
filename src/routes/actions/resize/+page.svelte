@@ -14,7 +14,8 @@
 				`'border-box' | 'content-box' | 'device-pixel-content-box'`,
 				`'border-box'`,
 				'Indicates which type of box model the observer should observe.'
-			]
+			],
+			['disabled', 'boolean', 'false', 'Disables the action.']
 		]
 	};
 
