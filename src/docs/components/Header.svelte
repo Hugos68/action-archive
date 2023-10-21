@@ -8,7 +8,7 @@
 	$: platformIsMac = platform.os?.family?.startsWith('Mac');
 
 	function keydownHandler(event: KeyboardEvent) {
-		if (event.key !== 'k' || !(platformIsMac ? event.ctrlKey : event.metaKey)) return;
+		if (event.key !== 'k' || !(platformIsMac ? event.metaKey : event.ctrlKey)) return;
 		event.preventDefault();
 		if ($dialogStore.at(-1)?.component === DocSearch) dialogStore.closeLatest();
 		else dialogStore.trigger({ component: DocSearch });
