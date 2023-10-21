@@ -8,7 +8,10 @@
 
 	const parametersStructure = {
 		headings: ['Name', 'Type', 'Default', 'Description'],
-		body: [['mask', 'string', '-', 'Mask that the input will adhere to.']]
+		body: [
+			['mask', 'string', '-', 'Mask that the input will adhere to.'],
+			['disabled', 'boolean', 'false', 'Disables the action.']
+		]
 	};
 
 	const wildcardStructure = {

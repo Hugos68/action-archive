@@ -1,0 +1,9 @@
+<script lang="ts">
+    import { long_press, type LongPressParameters } from 'action-archive';
+
+    const longPressParameters: LongPressParameters = {
+        duration: 500,
+    };
+</script>
+
+<button use:long_press={longPressParameters} on:aa_long_press={...}>Press</button>

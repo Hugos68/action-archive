@@ -3,18 +3,19 @@
 	import basicUsageCode from './basic-usage.txt?raw';
 	import DocTable from '$docs/components/DocTable.svelte';
 	import Example from '$docs/components/Example.svelte';
-	import ResizeExample from './ResizeExample.svelte';
-	import resizeExampleRaw from './ResizeExample.svelte?raw';
+	import ClickOutsideExample from './ClickOutsideExample.svelte';
+	import clickOutsideExampleRaw from './ClickOutsideExample.svelte?raw';
 
 	const parametersStructure = {
 		headings: ['Name', 'Type', 'Default', 'Description'],
 		body: [
 			[
-				'box',
-				`'border-box' | 'content-box' | 'device-pixel-content-box'`,
-				`'border-box'`,
-				'Indicates which type of box model the observer should observe.'
-			]
+				'container',
+				'HTMLElement | string',
+				'document.bodyElement',
+				'Element or query selected element which will act as the container, clicking outside of the container will not trigger an aa_click_outside event.'
+			],
+			['disabled', 'boolean', 'false', 'Disables the action.']
 		]
 	};
 
@@ -22,23 +23,26 @@
 		headings: ['Name', 'Type', 'Description'],
 		body: [
 			[
-				'aa_resize',
-				'(event: CustomEvent<{ entry: ResizeObserverEntry }>) => void',
-				'Emitted when the element resizes.'
+				'aa_click_outside',
+				'(event: MouseEvent) => void',
+				'Emitted when clicking outside of the node and inside of the container.'
 			]
 		]
 	};
 </script>
 
 <h2 class="h2 mt-12" id="description">Description</h2>
-<p class="p mt-4">The Resize action can be used to get notified when an element is resized.</p>
+<p class="p mt-4">
+	The Click Outside action can be used to detect clicks outside of an element, this can be useful
+	for example when you want to close a modal when the user clicks outside of it.
+</p>
 
 <h2 class="h2 mt-12" id="usage">Usage</h2>
 <Codeblock class="mt-4" code={basicUsageCode} language="xml" />
 
 <h2 class="h2 mt-12" id="example">Example</h2>
-<Example code={resizeExampleRaw} language="xml">
-	<ResizeExample />
+<Example code={clickOutsideExampleRaw} language="xml">
+	<ClickOutsideExample />
 </Example>
 
 <h2 class="h2 mt-12" id="api">API</h2>

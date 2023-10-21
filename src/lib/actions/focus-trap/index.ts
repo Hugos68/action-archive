@@ -45,12 +45,9 @@ export function focus_trap(node: HTMLElement, params: FocusTrapParameters = {}) 
 
 	function update(newParams: FocusTrapParameters, init = false) {
 		// Initialize
-		if (init) {
-			node.addEventListener('keydown', keydownHandler);
-		}
+		if (init) node.addEventListener('keydown', keydownHandler);
 
 		// Set defaults
-		if (newParams.disabled === undefined) newParams.disabled = false;
 		if (newParams.initialFocus === undefined) newParams.initialFocus = true;
 
 		// Update state
