@@ -12,7 +12,7 @@
 		threshold: 0.4
 	});
 
-	let value: string;
+	let value: string = '';
 	let timeout: ReturnType<typeof setTimeout>;
 	$: {
 		clearTimeout(timeout);
