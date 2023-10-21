@@ -3,9 +3,12 @@
 	import { GithubIcon, SearchIcon, SidebarIcon } from 'svelte-feather-icons';
 	import Drawer from '$docs/components/Drawer.svelte';
 	import DocSearch from './DocSearch.svelte';
+	import platform from 'platform';
+
+	$: platformIsMac = platform.os?.family?.startsWith('Mac');
 
 	function keydownHandler(event: KeyboardEvent) {
-		if (event.key !== 'k' || !event.ctrlKey) return;
+		if (event.key !== 'k' || !(platformIsMac ? event.metaKey : event.ctrlKey)) return;
 		event.preventDefault();
 		if ($dialogStore.at(-1)?.component === DocSearch) dialogStore.closeLatest();
 		else dialogStore.trigger({ component: DocSearch });
@@ -30,7 +33,7 @@
 			on:click={() => dialogStore.trigger({ component: DocSearch })}
 		>
 			<SearchIcon class="inline" size="20" />
-			Ctrl+K
+			<p class="hidden md:inline">{platformIsMac ? 'Cmd + K' : 'Ctrl + K'}</p>
 		</button>
 		<a title="Github" href="https://github.com/Hugos68/action-archive" target="_blank"
 			><GithubIcon /></a
