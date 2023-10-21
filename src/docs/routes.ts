@@ -1,56 +1,89 @@
-type Route = {
+export type Route = {
+	title: string;
 	name: string;
+	href: string;
+	keywords: string[];
+	category: 'overview' | 'actions';
+	actionName?: string;
 };
 
-export type Overview = Route;
-export const overviews: Overview[] = [
+export const routes: Route[] = [
 	{
-		name: 'introduction'
+		title: 'Introduction',
+		name: 'introduction',
+		href: '/overview/introduction',
+		keywords: ['introduction', 'overview'],
+		category: 'overview' as const
 	},
 	{
-		name: 'getting-started'
-	}
-];
-
-export type Action = Route;
-export const actions: Action[] = [
-	{
-		name: 'click-outside'
+		title: 'Getting Started',
+		name: 'getting-started',
+		href: '/overview/getting-started',
+		keywords: ['getting-started', 'overview'],
+		category: 'overview' as const
 	},
 	{
-		name: 'clipboard'
+		title: 'Click Outside',
+		name: 'click-outside',
+		href: '/actions/click-outside',
+		keywords: ['click-outside', 'actions'],
+		actionName: 'click_outside',
+		category: 'actions' as const
 	},
 	{
-		name: 'focus-trap'
+		title: 'Clipboard',
+		name: 'clipboard',
+		href: '/actions/clipboard',
+		keywords: ['clipboard', 'actions'],
+		category: 'actions' as const
 	},
 	{
-		name: 'intersect'
+		title: 'Focus Trap',
+		name: 'focus-trap',
+		href: '/actions/focus-trap',
+		keywords: ['focus-trap', 'actions'],
+		category: 'actions' as const
 	},
 	{
-		name: 'long-press'
+		title: 'Intersect',
+		name: 'intersect',
+		href: '/actions/intersect',
+		keywords: ['intersect', 'actions'],
+		category: 'actions' as const
 	},
 	{
-		name: 'mask'
+		title: 'Long Press',
+		name: 'long-press',
+		href: '/actions/long-press',
+		keywords: ['long-press', 'actions'],
+		category: 'actions' as const
 	},
 	{
-		name: 'password-reveal'
+		title: 'Mask',
+		name: 'mask',
+		href: '/actions/mask',
+		keywords: ['mask', 'actions'],
+		category: 'actions' as const
 	},
 	{
-		name: 'portal'
+		title: 'Password Reveal',
+		name: 'password-reveal',
+		href: '/actions/password-reveal',
+		keywords: ['password-reveal', 'actions'],
+		category: 'actions' as const
 	},
 	{
-		name: 'resize'
+		title: 'Portal',
+		name: 'portal',
+		href: '/actions/portal',
+		keywords: ['portal', 'actions'],
+		category: 'actions' as const
+	},
+	{
+		title: 'Resize',
+		name: 'resize',
+		href: '/actions/resize',
+		keywords: ['resize', 'actions'],
+		category: 'actions' as const
 	}
 ].sort((a, b) => (a.name > b.name ? 1 : -1));
-
-export function prettifyRoute(route: Route) {
-	const formatted = route.name.replace('-', ' ');
-	const captialize = (string: string) => string.charAt(0).toUpperCase() + string.slice(1);
-	const words = [];
-	for (const word of formatted.split(' ')) words.push(captialize(word));
-	return words.join(' ');
-}
-
-export function actionifyRoute(route: Action) {
-	return route.name.replace('-', '_');
-}

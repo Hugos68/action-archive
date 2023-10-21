@@ -1,27 +1,23 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { actions, type Action, prettifyRoute } from '$docs/routes';
+	import { routes, type Route } from '$docs/routes';
 	import { ArrowLeftIcon, ArrowRightIcon } from 'svelte-feather-icons';
 
-	$: currentAction = actions.find(
-		(action) => `/actions/${action.name}` === $page.url.pathname
-	) as Action;
+	$: actions = routes.filter(({ category }) => category === 'actions');
 
-	$: title = prettifyRoute(currentAction);
+	$: currentAction = actions.find(({ href }) => href === $page.url.pathname);
 
-	$: ({ previousAction, nextAction } = getPreviousAndNextActions(currentAction) as {
-		previousAction: Action | null;
-		nextAction: Action | null;
-	});
+	$: ({ title } = currentAction || { title: 'Unknown' });
 
-	function getPreviousAndNextActions(action: Action) {
-		const index = actions.indexOf(action);
-		if (index > -1) {
-			return {
-				previousAction: actions[index - 1] || null,
-				nextAction: actions[index + 1] || null
-			};
-		}
+	$: ({ previousAction, nextAction } = getPreviousAndNextActions(currentAction));
+
+	function getPreviousAndNextActions(route: Route | undefined) {
+		if (!route) return {};
+		const index = actions.indexOf(route);
+		return {
+			previousAction: actions[index - 1] || null,
+			nextAction: actions[index + 1] || null
+		};
 	}
 </script>
 
@@ -40,13 +36,11 @@
 	class="flex mt-36"
 >
 	{#if previousAction}
-		{@const href = `/actions/${previousAction.name}`}
-		{@const title = prettifyRoute(previousAction)}
+		{@const { title, href } = previousAction}
 		<a class="btn" {href}><ArrowLeftIcon class="inline" />{title}</a>
 	{/if}
 	{#if nextAction}
-		{@const href = `/actions/${nextAction.name}`}
-		{@const title = prettifyRoute(nextAction)}
+		{@const { title, href } = nextAction}
 		<a class="btn" {href}>{title}<ArrowRightIcon class="inline" /></a>
 	{/if}
 </div>
