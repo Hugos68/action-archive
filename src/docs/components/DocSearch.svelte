@@ -23,7 +23,7 @@
 			if (value) statusText = `Found no results for "${value}"`;
 			else statusText = 'Start typing to search...';
 		}, 200);
-        if (value) statusText = 'Searching...';
+		if (value) statusText = 'Searching...';
 	}
 </script>
 

@@ -3,11 +3,12 @@
 	import { GithubIcon, SearchIcon, SidebarIcon } from 'svelte-feather-icons';
 	import Drawer from '$docs/components/Drawer.svelte';
 	import DocSearch from './DocSearch.svelte';
+	import platform from 'platform';
+
+	$: platformIsWindows = platform.os?.family?.startsWith('Windows');
 
 	function keydownHandler(event: KeyboardEvent) {
-		console.log(event.metaKey);
-		
-		if (event.key !== 'k' || !event.metaKey) return;
+		if (event.key !== 'k' || !(platformIsWindows ? event.ctrlKey : event.metaKey)) return;
 		event.preventDefault();
 		if ($dialogStore.at(-1)?.component === DocSearch) dialogStore.closeLatest();
 		else dialogStore.trigger({ component: DocSearch });
@@ -32,7 +33,7 @@
 			on:click={() => dialogStore.trigger({ component: DocSearch })}
 		>
 			<SearchIcon class="inline" size="20" />
-			Cmd+K
+			{platformIsWindows ? 'Ctrl + K' : 'Cmd + K'}
 		</button>
 		<a title="Github" href="https://github.com/Hugos68/action-archive" target="_blank"
 			><GithubIcon /></a
