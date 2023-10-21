@@ -5,7 +5,9 @@
 	import DocSearch from './DocSearch.svelte';
 
 	function keydownHandler(event: KeyboardEvent) {
-		if (event.key !== 'k' || !event.ctrlKey) return;
+		console.log(event.metaKey);
+		
+		if (event.key !== 'k' || !event.metaKey) return;
 		event.preventDefault();
 		if ($dialogStore.at(-1)?.component === DocSearch) dialogStore.closeLatest();
 		else dialogStore.trigger({ component: DocSearch });
@@ -30,7 +32,7 @@
 			on:click={() => dialogStore.trigger({ component: DocSearch })}
 		>
 			<SearchIcon class="inline" size="20" />
-			Ctrl+K
+			Cmd+K
 		</button>
 		<a title="Github" href="https://github.com/Hugos68/action-archive" target="_blank"
 			><GithubIcon /></a
