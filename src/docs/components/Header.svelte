@@ -5,10 +5,10 @@
 	import DocSearch from './DocSearch.svelte';
 	import platform from 'platform';
 
-	$: platformIsWindows = platform.os?.family?.startsWith('Windows');
+	$: platformIsMac = platform.os?.family?.startsWith('Mac');
 
 	function keydownHandler(event: KeyboardEvent) {
-		if (event.key !== 'k' || !(platformIsWindows ? event.ctrlKey : event.metaKey)) return;
+		if (event.key !== 'k' || !(platformIsMac ? event.ctrlKey : event.metaKey)) return;
 		event.preventDefault();
 		if ($dialogStore.at(-1)?.component === DocSearch) dialogStore.closeLatest();
 		else dialogStore.trigger({ component: DocSearch });
@@ -33,7 +33,7 @@
 			on:click={() => dialogStore.trigger({ component: DocSearch })}
 		>
 			<SearchIcon class="inline" size="20" />
-			{platformIsWindows ? 'Ctrl + K' : 'Cmd + K'}
+			{platformIsMac ? 'Cmd + K' : 'Ctrl + K'}
 		</button>
 		<a title="Github" href="https://github.com/Hugos68/action-archive" target="_blank"
 			><GithubIcon /></a
