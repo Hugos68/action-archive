@@ -31,7 +31,7 @@
 			class="fixed inset-0 z-50 bg-black/50"
 			in:fade|global={{ easing: cubicOut }}
 		/>
-		<div class="z-[100]" use:melt={$content}>
+		<div use:melt={$content}>
 			<svelte:component this={dialog.component} {...dialog.props} />
 		</div>
 	{/if}
