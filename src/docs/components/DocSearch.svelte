@@ -4,7 +4,10 @@
 	import { fly } from 'svelte/transition';
 	import { dialogStore } from '$docs/stores/dialog-store';
 
+	let value: string = '';
 	let filteredRoutes: Route[] = [];
+	let timeout: ReturnType<typeof setTimeout>;
+	let statusText: string = 'Start typing to search...';
 
 	const fuse = new Fuse(routes, {
 		keys: ['title', 'name', 'href', 'keywords', 'category', 'actionName'],
@@ -12,14 +15,15 @@
 		threshold: 0.4
 	});
 
-	let value: string;
-	let timeout: ReturnType<typeof setTimeout>;
 	$: {
 		clearTimeout(timeout);
 		timeout = setTimeout(() => {
 			const results = fuse.search((value || '').trim().toLowerCase());
 			filteredRoutes = results.map((result) => result.item);
+			if (value) statusText = `Found no results for "${value}"`;
+			else statusText = 'Start typing to search...';
 		}, 200);
+		statusText = 'Searching...';
 	}
 </script>
 
@@ -38,10 +42,8 @@ shadow-lg p-6 rounded-md"
 					<p class="text-zinc-50/50">{href}</p>
 				</a>
 			{/each}
-		{:else if value === ''}
-			<p class="text-zinc-50/50 text-center text-lg">Start typing to search</p>
 		{:else}
-			<p class="text-zinc-50/50 text-center text-lg">No results found</p>
+			<p class="text-zinc-50/50 text-center text-lg">{statusText}</p>
 		{/if}
 	</div>
 </div>
