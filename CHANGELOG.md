@@ -1,5 +1,16 @@
 # action-archive
 
+## 0.6.0
+
+### Minor Changes
+
+- e3c94dc: Implemented docs search
+- 26ec3e0: Implemented the Long Press action
+
+### Patch Changes
+
+- 26ec3e0: Added disabled prop to all actions for more fine grained control
+
 ## 0.5.1
 
 ### Patch Changes
