@@ -6,8 +6,8 @@
 </script>
 
 <div
-	class="fixed top-0 left-0 h-screen bg-zinc-900
-shadow-lg px-[clamp(1rem,10vw,25rem)]"
+	class="absolute top-0 left-0 h-screen bg-zinc-900
+shadow-lg px-[clamp(1rem,10vw,25rem)] z-50"
 	transition:fly|global={{ x: -200 }}
 >
 	<header class="h-[var(--header-height)] py-4 flex justify-end">
