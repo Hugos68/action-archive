@@ -33,7 +33,7 @@
 			on:click={() => dialogStore.trigger({ component: DocSearch })}
 		>
 			<SearchIcon class="inline" size="20" />
-			{platformIsMac ? 'Cmd + K' : 'Ctrl + K'}
+			<p class="hidden md:inline">{platformIsMac ? 'Cmd + K' : 'Ctrl + K'}</p>
 		</button>
 		<a title="Github" href="https://github.com/Hugos68/action-archive" target="_blank"
 			><GithubIcon /></a
