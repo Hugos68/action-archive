@@ -12,7 +12,7 @@
 		threshold: 0.4
 	});
 
-	$: filtezincRoutes = fuse.search((value || '').trim().toLowerCase()).map((result) => result.item);
+	$: filteredRoutes = fuse.search((value || '').trim().toLowerCase()).map((result) => result.item);
 
 	let recentRoutes = JSON.parse(localStorage.getItem('recent-routes') || '[]') as Route[];
 
@@ -30,7 +30,10 @@
 		recentRoutes.splice(index, 1);
 		localStorage.setItem('recent-routes', JSON.stringify(recentRoutes));
 		recentRoutes = recentRoutes;
+		if (recentRoutes.length === 0) searchInput.focus();
 	}
+
+	let searchInput: HTMLInputElement;
 </script>
 
 <div
@@ -43,25 +46,29 @@ shadow-lg rounded-md"
 		<input
 			class="bg-transparent text-2xl outline-none pl-10 w-full"
 			placeholder="Search the docs..."
+			bind:this={searchInput}
 			bind:value
 		/>
 		<SearchIcon class="absolute left-4 top-1/2 -translate-y-1/2" />
 	</div>
 	<div class="overflow-auto max-h-[400px] min-h-[100px] p-4 flex flex-col gap-1" tabindex="-1">
-		{#if filtezincRoutes.length > 0}
-			<p class="text-zince-950/50 dark:text-zinc-50/50 text-lg">Showing results for: "{value}"</p>
-			{#each filtezincRoutes as route (route.href)}
+		{#if filteredRoutes.length > 0}
+			<p class="text-zinc-950/50 dark:text-zinc-50/50 text-lg">
+				Found {filteredRoutes.length}
+				{filteredRoutes.length === 1 ? 'result' : 'results'} for "{value}":
+			</p>
+			{#each filteredRoutes as route (route.href)}
 				{@const { title, href } = route}
 				<a class="block p-2" {href} on:click={() => clickHandler(route)}>
 					<p class="text-lg font-semibold">{title}</p>
-					<p class="text-zince-950/50 dark:text-zinc-50/50">{href}</p>
+					<p class="text-zinc-950/50 dark:text-zinc-50/50">{href}</p>
 				</a>
 			{/each}
 		{:else if value}
-			<p class="text-zince-950/50 dark:text-zinc-50/50 text-lg">No results found for "{value}"</p>
+			<p class="text-zinc-950/50 dark:text-zinc-50/50 text-lg">No results found for "{value}"</p>
 		{:else if recentRoutes.length > 0}
-			<p class="text-zince-950/50 dark:text-zinc-50/50 text-lg">Recent Searches:</p>
-			{#each recentRoutes as route}
+			<p class="text-zinc-950/50 dark:text-zinc-50/50 text-lg">Recent Searches:</p>
+			{#each recentRoutes.reverse() as route}
 				{@const { title, href } = route}
 				<a
 					class="flex items-center justify-between p-2 rounded-md"
@@ -78,7 +85,9 @@ shadow-lg rounded-md"
 				</a>
 			{/each}
 		{:else}
-			<p class="text-zinc-50/50 text-center text-lg py-12">No recent searches</p>
+			<p class="text-zinc-950/50 dark:text-zinc-50/50 text-center text-lg py-12">
+				No recent searches
+			</p>
 		{/if}
 	</div>
 </div>

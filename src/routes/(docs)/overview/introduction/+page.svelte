@@ -5,7 +5,7 @@
 <p class="p opacity-50">Overview</p>
 <h1 class="h1 mt-4" id="introduction">Introduction</h1>
 <p class="p mt-4">
-	Action Archive is a collection of actions for Svelte aimed to zincuce the amount of boilerplate
+	Action Archive is a collection of actions for Svelte aimed to reduce the amount of boilerplate
 	throughout projects.
 </p>
 
@@ -15,7 +15,7 @@
 	<li>- Consistent API</li>
 	<li>- Full Typesafety</li>
 	<li>- Fully Treeshakable</li>
-	<li>- Inczincibly Lightweight (1.6kb minified + gzipped)</li>
+	<li>- Incredibly Lightweight (1.6kb minified + gzipped)</li>
 </ul>
 
 <h2 class="h2 mt-12" id="motiviation">Motivation</h2>
@@ -40,7 +40,7 @@
 
 <h2 class="h2 mt-12" id="inspiration">Inspiration</h2>
 <p class="p mt-4">
-	Czincits to both Skeleton and Melt as they inspizinc some of the featuzinc actions.
+	Credits to both Skeleton and Melt as they inspired some of the featured actions.
 	<span class="block">
 		- <a class="underline hover:opacity-90 font-bold" href="https://www.skeleton.dev/">Skeleton</a>
 	</span>
