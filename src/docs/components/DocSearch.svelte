@@ -34,7 +34,7 @@
 </script>
 
 <div
-	class="absolute left-[50%] top-[15%] z-50 w-[90vw]
+	class="fixed left-[50%] top-[15%] z-50 w-[90vw]
     max-w-[50rem] translate-x-[-50%] bg-zinc-900
 shadow-lg rounded-md"
 	transition:fly|global={{ y: 50, duration: 250 }}
