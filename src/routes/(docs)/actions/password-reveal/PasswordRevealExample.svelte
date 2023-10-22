@@ -4,7 +4,9 @@
 
 <div class="py-32 px-8 flex justify-center items-center gap-4">
 	<input type="password" value="MySecretPassword" class="input max-w-xs" id="password" />
-	<button type="button" class="btn" use:password_reveal={{ target: '#password', type: 'hold' }}
-		>Reveal</button
+	<button
+		type="button"
+		class="btn btn-filled"
+		use:password_reveal={{ target: '#password', type: 'hold' }}>Reveal</button
 	>
 </div>

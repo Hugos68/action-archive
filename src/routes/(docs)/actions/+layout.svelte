@@ -37,10 +37,10 @@
 >
 	{#if previousAction}
 		{@const { title, href } = previousAction}
-		<a class="btn" {href}><ArrowLeftIcon class="inline" />{title}</a>
+		<a class="btn btn-filled" {href}><ArrowLeftIcon class="inline" />{title}</a>
 	{/if}
 	{#if nextAction}
 		{@const { title, href } = nextAction}
-		<a class="btn" {href}>{title}<ArrowRightIcon class="inline" /></a>
+		<a class="btn btn-filled" {href}>{title}<ArrowRightIcon class="inline" /></a>
 	{/if}
 </div>

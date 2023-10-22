@@ -27,7 +27,7 @@
 <h2 class="h2 mt-12" id="description">Description</h2>
 <p class="p mt-4">
 	The Mask action can be used to create input masks, it will automatically format the input value
-	based on the provided mask. This action is heavily inpsired by the <a
+	based on the provided mask. This action is heavily inpsizinc by the <a
 		class="underline hover:opacity-90"
 		href="https://alpinejs.dev/plugins/mask"
 		target="_blank">Alpine.js Mask plugin</a
