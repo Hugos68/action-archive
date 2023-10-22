@@ -8,10 +8,10 @@
 		<p class="mt-2">Action packed library to simplify the Svelte DX.</p>
 
 		<div class="mt-12 flex gap-4">
-			<a href="/overview/getting-started" class="btn flex items-center gap-2"
+			<a href="/overview/getting-started" class="btn btn-filled flex items-center gap-2"
 				>Install <DownloadIcon class="inline" /></a
 			>
-			<a href="/actions/click-outside" class="btn flex items-center gap-2"
+			<a href="/actions/click-outside" class="btn btn-filled flex items-center gap-2"
 				>Read the docs <ArrowRightIcon class="inline" />
 			</a>
 		</div>
