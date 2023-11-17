@@ -21,7 +21,7 @@ export function password_reveal(node: HTMLElement, params: PasswordRevealParamet
 		inputEl.type = 'password';
 	}
 
-	function update(newParams: PasswordRevealParameters, init = true) {
+	function update(newParams: PasswordRevealParameters, init = false) {
 		// Initialize
 		if (init) {
 			node.addEventListener('click', clickHandler);
