@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="fixed top-0 left-0 h-screen bg-zinc-900
+	class="fixed top-0 left-0 h-screen bg-zinc-50 dark:bg-zinc-950
 shadow-lg px-[clamp(1rem,10vw,25rem)] z-50"
 	transition:fly|global={{ x: -200 }}
 >

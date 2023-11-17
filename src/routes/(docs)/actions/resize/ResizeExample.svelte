@@ -13,14 +13,14 @@
 
 <div class="py-32 px-8 flex flex-col gap-4 justify-center items-center">
 	<div
-		class="bg-zinc-50 h-24 w-36 flex flex-col justify-center items-center rounded-md resize overflow-auto"
+		class="bg-zinc-950 dark:bg-zinc-50 h-24 w-36 flex flex-col justify-center items-center rounded-md resize overflow-auto"
 		use:resize
 		on:aa_resize={resizeHandler}
 	>
-		<p class="text-center select-none font-bold text-zinc-950">
+		<p class="text-center select-none font-bold text-zinc-50 dark:text-zinc-950">
 			Width: {width}
 		</p>
-		<p class="text-center select-none font-bold text-zinc-950">
+		<p class="text-center select-none font-bold text-zinc-50 dark:text-zinc-950">
 			Height: {height}
 		</p>
 	</div>

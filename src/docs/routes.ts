@@ -86,4 +86,4 @@ export const routes: Route[] = [
 		keywords: ['resize', 'actions'],
 		category: 'actions' as const
 	}
-].sort((a, b) => (a.name > b.name ? 1 : -1));
+];

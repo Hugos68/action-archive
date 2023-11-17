@@ -51,7 +51,7 @@
 <p class="p mt-4">Fun fact: This website was built with Melt!</p>
 
 <div class="flex justify-end mt-36">
-	<a class="btn bg-zinc-500" href="/overview/getting-started"
+	<a class="btn btn-filled bg-zinc-500" href="/overview/getting-started"
 		>Getting Started <ArrowRightIcon class="inline" /></a
 	>
 </div>

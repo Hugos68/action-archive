@@ -8,12 +8,8 @@
 	--header-height: 4rem;
 }
 
-html {
-	@apply scroll-smooth;
-}
-
 body {
-	@apply bg-zinc-900 text-zinc-50 font-['Kanit',sans-serif];
+	@apply bg-zinc-50 dark:bg-zinc-950 text-zinc-950 dark:text-zinc-50 font-['Kanit',sans-serif];
 }
 
 /* Prevent header from overlapping content */
@@ -49,9 +45,12 @@ h6[id] {
 }
 
 .btn {
-	@apply px-3 py-1.5 rounded-md bg-zinc-200 text-zinc-950 hover:opacity-90 font-bold active:scale-[97%] transition-transform;
+	@apply px-3 py-1.5 rounded-md;
+}
+.btn-filled {
+	@apply bg-zinc-950 dark:bg-zinc-100  text-zinc-100 dark:text-zinc-950 hover:opacity-90 font-bold active:scale-[97%] transition-transform;
 }
 
 .input {
-	@apply px-3 py-1.5 rounded-md bg-zinc-200 w-full  text-zinc-950 font-bold;
+	@apply px-3 py-1.5 rounded-md bg-zinc-950 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-950 font-bold;
 }

@@ -38,7 +38,9 @@
 
 <div {...$$restProps} class="hljs relative w-full rounded-md overflow-hidden {$$props.class}">
 	<button
-		class="btn absolute w-fit h-fit top-3.5 {fromExample ? 'right-[4.25rem]' : 'right-3.5'}"
+		class="btn btn-filled absolute w-fit h-fit top-3.5 {fromExample
+			? 'right-[4.25rem]'
+			: 'right-3.5'}"
 		use:clipboard={{ value: code }}
 		on:aa_copy={clipboardcopyHandler}
 	>

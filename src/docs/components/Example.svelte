@@ -14,9 +14,9 @@
 </script>
 
 <div
-	class="relative rounded-md mt-4 bg-gradient-to-tr from-zinc-950/50 via-zinc-900 to-zinc-950/50"
+	class="relative rounded-md mt-4 bg-gradient-to-tr from-zinc-400/50 dark:from-zinc-950/50 via-zinc-50/50 dark:via-zinc-900 to-zinc-400/50 dark:to-zinc-950/50"
 >
-	<button use:melt={$root} class="btn absolute top-3.5 right-3.5 z-10">
+	<button use:melt={$root} class="btn btn-filled absolute top-3.5 right-3.5 z-10">
 		{#if $pressed}
 			<div in:fly={{ y: -4 }}>
 				<EyeIcon size="15" />

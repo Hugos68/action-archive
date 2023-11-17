@@ -13,8 +13,12 @@
 
 <div class="flex flex-col gap-12 py-32 px-8">
 	<div class="flex gap-4 justify-evenly">
-		<button class="btn" on:click={() => (target = '#container1')}>Portal to container 1</button>
-		<button class="btn" on:click={() => (target = '#container2')}>Portal to container 2</button>
+		<button class="btn btn-filled" on:click={() => (target = '#container1')}
+			>Portal to container 1</button
+		>
+		<button class="btn btn-filled" on:click={() => (target = '#container2')}
+			>Portal to container 2</button
+		>
 	</div>
 
 	<div class="flex gap-8 justify-evenly">
