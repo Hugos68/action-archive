@@ -1,5 +1,11 @@
 # action-archive
 
+## 0.6.1
+
+### Patch Changes
+
+- c371d34: Password Reveal: Fixed memory leak caused by adding duplicate event listeners on every update
+
 ## 0.6.0
 
 ### Minor Changes
