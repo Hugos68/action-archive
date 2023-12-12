@@ -50,15 +50,15 @@ export function mask(node: HTMLInputElement, params: MaskParameters) {
 function formatMoney(input: string) {
 	let newValue = input.replace(/\D/g, '');
 
+	if (newValue.startsWith('0')) {
+		newValue = newValue.substring(1);
+	}
 	while (newValue.length < 3) {
 		newValue = '0' + newValue;
 	}
 
 	newValue = newValue.replace(/(\d)(\d{2})$/, '$1.$2');
 
-	if (newValue.startsWith('00')) {
-		newValue = newValue.substring(1);
-	}
 
 	return newValue;
 }
