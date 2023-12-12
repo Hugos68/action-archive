@@ -6,6 +6,9 @@
 	import MaskExample from './MaskExample.svelte';
 	import maskExampleRaw from './MaskExample.svelte?raw';
 
+	import MaskExampleMoney from './MaskExampleMoney.svelte';
+	import maskExampleMoneyRaw from './MaskExampleMoney.svelte?raw';
+
 	const parametersStructure = {
 		headings: ['Name', 'Type', 'Default', 'Description'],
 		body: [
@@ -47,6 +50,10 @@
 <h2 class="h2 mt-12" id="example">Example</h2>
 <Example code={maskExampleRaw} language="xml">
 	<MaskExample />
+</Example>
+
+<Example code={maskExampleMoneyRaw} language="xml">
+	<MaskExampleMoney />
 </Example>
 
 <h2 class="h2 mt-12" id="api">API</h2>
