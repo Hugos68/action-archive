@@ -32,6 +32,7 @@ export function long_press(
 	}
 
 	function destroy() {
+		if (press) clearTimeout(press);
 		node.removeEventListener('pointerdown', pointerDownHandler);
 		node.removeEventListener('pointerup', pointerUpHandler);
 	}
