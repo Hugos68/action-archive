@@ -1,5 +1,11 @@
 # action-archive
 
+## 0.6.2
+
+### Patch Changes
+
+- 29504d5: Fixed potentional memory leak by not clearing timeout for longpress on destroy
+
 ## 0.6.1
 
 ### Patch Changes
