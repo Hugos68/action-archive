@@ -1,5 +1,11 @@
 # action-archive
 
+## 0.6.3
+
+### Patch Changes
+
+- 5e06713: Click Outside: Added request animation frame callback to prevent immediate click outside callback
+
 ## 0.6.2
 
 ### Patch Changes
