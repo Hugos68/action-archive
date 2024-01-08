@@ -1,4 +1,4 @@
-import type { ActionReturn } from '../../internal/svelte.js';
+import type { ActionReturn } from 'svelte/action';
 import type { ClickOutsideEvents, ClickOutsideParamaters } from './types.js';
 import { emit } from '../../internal/emit.js';
 import { getElementFromStringOrElement } from '../../internal/element.js';
@@ -20,7 +20,11 @@ export function click_outside(
 
 	function update(newParams: ClickOutsideParamaters = {}, init = false) {
 		// Initialize
-		if (init) document.addEventListener('click', clickHandler);
+		if (init) {
+			requestAnimationFrame(() => {
+				document.addEventListener('click', clickHandler);
+			});
+		}
 
 		// Set default values
 		if (!newParams.container) newParams.container = document.documentElement;

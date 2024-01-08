@@ -1,6 +1,6 @@
 import type { LongPressEvents, LongPressParameters } from './types';
 import { emit } from '../../internal/emit';
-import type { ActionReturn } from '../../internal/svelte';
+import type { ActionReturn } from 'svelte/action';
 
 export function long_press(
 	node: HTMLElement,
