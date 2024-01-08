@@ -1,6 +1,6 @@
-import type { ActionReturn } from '../../internal/svelte.js';
 import type { IntersectEvents, IntersectParameters } from './types.js';
 import { emit } from '../../internal/emit.js';
+import type { ActionReturn } from 'svelte/action';
 
 export function intersect(
 	node: HTMLElement,

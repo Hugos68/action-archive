@@ -1,4 +1,4 @@
-import type { ActionReturn } from '../../internal/svelte.js';
+import type { ActionReturn } from 'svelte/action';
 import type { ClipboardEvents, ClipboardParameters } from './types.js';
 import { emit } from '../../internal/emit.js';
 
