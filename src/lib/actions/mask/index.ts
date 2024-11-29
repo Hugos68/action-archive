@@ -6,6 +6,14 @@ export function mask(node: HTMLInputElement, params: MaskParameters) {
 	function inputHandler() {
 		if (params.disabled) return;
 		if (lastInputValue === null) return;
+
+		if (params.mask === 'money') {
+			const input = node.value;
+			node.value = formatMoney(input);
+
+			return;
+		}
+
 		const pressedBackspace = lastInputValue.length - node.value.length === 1;
 		if (!pressedBackspace) {
 			const input = node.value;
@@ -22,8 +30,12 @@ export function mask(node: HTMLInputElement, params: MaskParameters) {
 		}
 
 		// Update state
-		params = newParams;
-		node.value = cleanAndFormat(node.value, params.mask);
+		if (newParams.mask === 'money') {
+			node.value = formatMoney(node.value);
+		}else{
+			params = newParams;
+			node.value = cleanAndFormat(node.value, params.mask);
+		}
 	}
 
 	function destroy() {
@@ -33,6 +45,22 @@ export function mask(node: HTMLInputElement, params: MaskParameters) {
 	update(params, true);
 
 	return { update, destroy };
+}
+
+function formatMoney(input: string) {
+	let newValue = input.replace(/\D/g, '');
+
+	if (newValue.startsWith('0')) {
+		newValue = newValue.substring(1);
+	}
+	while (newValue.length < 3) {
+		newValue = '0' + newValue;
+	}
+
+	newValue = newValue.replace(/(\d)(\d{2})$/, '$1.$2');
+
+
+	return newValue;
 }
 
 function cleanAndFormat(input: string, mask: string) {
